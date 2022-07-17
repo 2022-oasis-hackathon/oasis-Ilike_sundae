@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import {ScrollView, Text, StyleSheet} from 'react-native';
-import LikeCard from '../components/LikeCard';
-import Card from '../components/Card';
+import LikeCard from '../../components/LikeCard'
+// import Card from '....//components/Card';
 
 export default function LikePage({navigation,route}){
     

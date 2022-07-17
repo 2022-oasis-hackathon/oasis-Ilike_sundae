@@ -6,18 +6,17 @@ import { StatusBar } from 'expo-status-bar';
 import * as Location from "expo-location";
 import axios from "axios";
 
-import Card from '../components/Card';
-import Loading from '../components/Loading';
-import Banner from '../components/Banner';
- import {firebase_db} from "../firebaseConfig" // firebase 기능 
+import Card from '../../components/Card';
+import Loading from '../../components/Loading';
+import Banner from '../../components/Banner';
+ import {firebase_db} from "../../../firebaseConfig" // firebase 기능 
 
 
 
 export default function MainPage({navigation,route}) {
-
   const [state,setState] = useState([])
-
   const [cateState,setCateState] = useState([])
+  const [ready,setReady] = useState(true) // 데이터 받아 오기전까지 로딩 페이지.
 
   //날씨 데이터 상태관리 상태 생성!
   // const [weather, setWeather] = useState({
@@ -25,7 +24,6 @@ export default function MainPage({navigation,route}) {
   //   condition : ''
   // })
 
-  const [ready,setReady] = useState(true) // 데이터 받아 오기전까지 로딩 페이지.
 
   useEffect(()=>{
     navigation.setOptions({

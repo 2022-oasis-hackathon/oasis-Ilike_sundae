@@ -5,7 +5,7 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 
 import {NavigationContainer} from '@react-navigation/native';
-import Navigator from './navigation/Navigator';
+import Navigator from './res/navigation/Navigator';
 
 
 export default function App() {
