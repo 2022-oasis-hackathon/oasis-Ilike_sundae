@@ -32,21 +32,22 @@ const Header = (props) => {
         />
         <View style={{ display: 'flex', flexDirection: 'row',alignItems: 'center', justifyContent: 'space-evenly', width: (WIDTH - 32) * 0.3, paddingRight: 8 }} >
             <TouchableOpacity onPress={() => props.navigation.navigate('MypageNavigator', { screen: 'Favorite', initial: false })} >
-                <Ionicons name={'star-outline'} size="20" color='black' />
+                <Ionicons name={'star-outline'} size={20} color='black' />
             </TouchableOpacity>
 
 
             <TouchableOpacity onPress={() => props.navigation.navigate('MypageNavigator', { screen: 'ShopCart', initial: false })} >
                 <View style={{ display: 'flex',  alignItems: 'center', justifyContent:'center',position: 'absolute', right: 0,backgroundColor: 'orange', height: 12, width: 12, borderRadius: "50%", zIndex: 10 }} >
                     <Text style={{ color: 'white', fontSize: 10 }} >
-                        {/**
+                        {
+                            1
+                        /**
                          쇼핑카트에 들어있는 수 만큼 표시
                         */
-                        1
                         }
                     </Text>
                 </View>
-                <Ionicons name={'cart-outline'} size="24" color='black' />
+                <Ionicons name={'cart-outline'} size={24} color='black' />
             </TouchableOpacity>
         </View>
     </SafeAreaView>

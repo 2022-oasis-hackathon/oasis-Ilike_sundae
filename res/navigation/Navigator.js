@@ -41,10 +41,17 @@ const CommunityNavigator = () => {
     return (
         <Stack.Navigator
             screenOptions={{
-                headerShown: false
-            }}    
+                headerStyle: {
+                    backgroundColor: "white",
+                    shadowColor: "white",
+                },
+            }}
         >
-            <Stack.Screen name='Community' component={Community} />
+            <Stack.Screen name='Community' component={Community} 
+                options={({ navigation, route }) => ({
+                    headerTitle: (props) => <Header {...props} page={route} navigation={navigation} />,
+                })}
+            />
         </Stack.Navigator>
     )
 }
@@ -53,10 +60,17 @@ const ChatNavigation = () => {
     return (
         <Stack.Navigator
             screenOptions={{
-                headerShown: false
-            }}      
+                headerStyle: {
+                    backgroundColor: "white",
+                    shadowColor: "white",
+                },
+            }}
         >
-            <Stack.Screen name='Chat' component={Chat} />
+            <Stack.Screen name='Chat' component={Chat} 
+                options={({ navigation, route }) => ({
+                    headerTitle: (props) => <Header {...props} page={route} navigation={navigation} />,
+                })}
+            />
         </Stack.Navigator>
     )
 }
