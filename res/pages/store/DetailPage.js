@@ -1,14 +1,21 @@
 import React,{useState,useEffect} from 'react';
 import { StyleSheet, Text, View, Image, ScrollView,TouchableOpacity,Alert,Share,FlatList } from 'react-native';
 import * as Linking from 'expo-linking';
+import {firebase_db} from "../../../firebaseConfig"
+
+import * as Application from 'expo-application';
+const isIOS = Platform.OS === 'ios';
+
+
 
 import seedData from '../../../data.json'
 import ReviewCard from '../../components/ReviewCard';
 
 export default function DetailPage({navigation,route}) {
 // 
-    const seed = {
-        "idx":"1",
+
+const [seed, setSeed] = useState({
+    "idx":"1",
         "title":"장수 사과",
         "body":"아따 여기 장수 사과 맛나요 어쩌구 ~ 저쩌구 ~ 어쩌구 ~ 저쩌구 ~어쩌구 ~ 저쩌구 ~어쩌구 ~ 저쩌구 ~어쩌구 ~ 저쩌구 ~",
         "imgPath" : "http://www.smgnews.co.kr/imgdata/smgnews_co_kr/201809/2018091126216113.jpg",
@@ -39,22 +46,45 @@ export default function DetailPage({navigation,route}) {
                  "reply": "좋네요"
              }
         ]
-    }
+})
 
-    const [reviewState,setReviewState] = useState([])
-    
    
+useEffect(()=>{
+    console.log(route)
+   
+    //넘어온 데이터는 route.params에 들어 있습니다.
+    const { idx } = route.params;
+    firebase_db.ref('/seed/'+idx).once('value').then((snapshot) => {
+        let seed = snapshot.val();
+        setSeed(seed)
+    });
+},[])
 
-    const popup = () => {
-        Alert.alert("팝업!!")
+    const like = async () => {
+        // like 방 안에
+        // 특정 사용자 방안에
+        // 특정 좋아요 데이터 아이디 방안에
+        // 특정 좋아요 데이터 몽땅 저장!
+        // 좋아요 데이터 방 > 사용자 방 > 어떤 찜인지 아이디
+        let userUniqueId;
+        if(isIOS){
+        let iosId = await Application.getIosIdForVendorAsync(); // 분기처리
+            userUniqueId = iosId
+        }else{
+            userUniqueId = await Application.androidId
+        }
+
+        console.log(userUniqueId)
+	       firebase_db.ref('/like/'+userUniqueId+'/'+ seed.idx).set(seed,function(error){
+             console.log(error)
+             Alert.alert("좋아요!")
+         });
     }
-    let primary = seed.idx; 
 
-  
 
     const share = () => {
         Share.share({
-            message:`${seed.title} \n\n ${seed.desc} `,
+            message:`${seed.title} \n\n ${seed.body} `,
         });
     }
 
@@ -73,7 +103,7 @@ export default function DetailPage({navigation,route}) {
                 <Text style={styles.price}>{seed.price}</Text>
 
                 <View style={styles.buttonGroup}>
-                    <TouchableOpacity style={styles.button} onPress={()=>popup()}><Text style={styles.buttonText}>팁 찜하기</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={()=>like()}><Text style={styles.buttonText}>좋아요</Text></TouchableOpacity>
                     <TouchableOpacity style={styles.button} onPress={()=>share()}><Text style={styles.buttonText}>팁 공유하기</Text></TouchableOpacity>
                     <TouchableOpacity style={styles.button} onPress={()=>link(address)}><Text style={styles.buttonText}>외부 링크</Text></TouchableOpacity>
                 </View>

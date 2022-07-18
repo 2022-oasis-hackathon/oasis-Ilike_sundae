@@ -9,7 +9,7 @@ export default function Card({content,navigation}){
 
     return(
         <TouchableOpacity style={styles.card} onPress={()=>{navigation.navigate('DetailPage',content)}}>
-            <Image style={styles.cardImage} source={{uri:content.image}}/>
+            <Image style={styles.cardImage} source={{uri:content.imgPath}}/>
             <View style={styles.cardText}>
                 <Text style={styles.cardTitle} numberOfLines={1}>{content.title}</Text>
                 <Text style={styles.cardDate}>{content.date}</Text>

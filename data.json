@@ -1,6 +1,39 @@
 {
     "seed":[
         {
+        "idx":"0",
+        "title":"장수 사과",
+        "body":"아따 여기 장수 사과 맛나요",
+        "imgPath" : "http://www.smgnews.co.kr/imgdata/smgnews_co_kr/201809/2018091126216113.jpg",
+        "writter" : "user1" ,
+        "price": "5,000",
+        "hit": 0,
+        "regdate": "2022-07-09",
+        "review":[
+            {
+                "idx":0,
+               " writter": "user1",  
+                "reply": "좋네요"
+            },
+            {
+                "idx":1,
+                " writter": "user2",  
+                 "reply": "별로"
+             },
+             {
+                
+                "idx":2,
+                " writter": "user3",  
+                 "reply": "굿굿"
+             },
+             {
+                "idx":3,
+                " writter": "user4",  
+                 "reply": "좋네요"
+             }
+        ]
+    },
+    {
         "idx":"1",
         "title":"장수 사과",
         "body":"아따 여기 장수 사과 맛나요",
@@ -32,7 +65,107 @@
                  "reply": "좋네요"
              }
         ]
+    },
+    {
+        "idx":"2",
+        "title":"장수 사과",
+        "body":"아따 여기 장수 사과 맛나요",
+        "imgPath" : "http://www.smgnews.co.kr/imgdata/smgnews_co_kr/201809/2018091126216113.jpg",
+        "writter" : "user1" ,
+        "price": "5,000",
+        "hit": 0,
+        "regdate": "2022-07-09",
+        "review":[
+            {
+                "idx":0,
+               " writter": "user1",  
+                "reply": "좋네요"
+            },
+            {
+                "idx":1,
+                " writter": "user2",  
+                 "reply": "별로"
+             },
+             {
+                
+                "idx":2,
+                " writter": "user3",  
+                 "reply": "굿굿"
+             },
+             {
+                "idx":3,
+                " writter": "user4",  
+                 "reply": "좋네요"
+             }
+        ]
+    },
+    {
+        "idx":"3",
+        "title":"장수 사과",
+        "body":"아따 여기 장수 사과 맛나요",
+        "imgPath" : "http://www.smgnews.co.kr/imgdata/smgnews_co_kr/201809/2018091126216113.jpg",
+        "writter" : "user1" ,
+        "price": "5,000",
+        "hit": 0,
+        "regdate": "2022-07-09",
+        "review":[
+            {
+                "idx":0,
+               " writter": "user1",  
+                "reply": "좋네요"
+            },
+            {
+                "idx":1,
+                " writter": "user2",  
+                 "reply": "별로"
+             },
+             {
+                
+                "idx":2,
+                " writter": "user3",  
+                 "reply": "굿굿"
+             },
+             {
+                "idx":3,
+                " writter": "user4",  
+                 "reply": "좋네요"
+             }
+        ]
+    },
+    {
+        "idx":"4",
+        "title":"장수 사과",
+        "body":"아따 여기 장수 사과 맛나요",
+        "imgPath" : "http://www.smgnews.co.kr/imgdata/smgnews_co_kr/201809/2018091126216113.jpg",
+        "writter" : "user1" ,
+        "price": "5,000",
+        "hit": 0,
+        "regdate": "2022-07-09",
+        "review":[
+            {
+                "idx":0,
+               " writter": "user1",  
+                "reply": "좋네요"
+            },
+            {
+                "idx":1,
+                " writter": "user2",  
+                 "reply": "별로"
+             },
+             {
+                
+                "idx":2,
+                " writter": "user3",  
+                 "reply": "굿굿"
+             },
+             {
+                "idx":3,
+                " writter": "user4",  
+                 "reply": "좋네요"
+             }
+        ]
     }
+    
     ]
     }
     

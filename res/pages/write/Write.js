@@ -1,13 +1,14 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import Layout from '../../components/Layout'
+import { TextInput } from 'react-native-gesture-handler'
 
 const Write = () => {
   return (
     <Layout>
-      <Text>
-        123
-      </Text>
+     
+
+
     </Layout>
   )
 }
