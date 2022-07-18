@@ -28,7 +28,7 @@ export default function Favorites({navigation,route}){
             userUniqueId = await Application.androidId
         }
 
-        console.log(userUniqueId)
+        console.log("userid",userUniqueId)
         firebase_db.ref('/like/'+userUniqueId).once('value').then((snapshot) => {
             let seed = snapshot.val();
             

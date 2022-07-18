@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, Dimensions, Image } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import Svg, { Path, WithLocalSvg } from 'react-native-svg'
 import Ionicons from '@expo/vector-icons/Ionicons'
 
@@ -21,6 +21,7 @@ const WIDTH = Math.floor(Dimensions.get('window').width)
 const HEIGHT = Math.floor(Dimensions.get('window').height)
 
 function TabBarContainer({ state, descriptors, navigation }) {
+    const [ prevPage, setPrevPage ] = useState('')
   return (
     <>
       <Image source={{ uri: 'https://ifh.cc/g/W2wwab.png', width: WIDTH, height: 100 }} style={{ position: 'absolute', bottom: 0 }} />
@@ -42,9 +43,17 @@ function TabBarContainer({ state, descriptors, navigation }) {
                   type: 'tabPress',
                   target: route.key,
                 });
-                
                 if (!isFocused && !event.defaultPrevented) {
-                    navigation.navigate(route.name);
+                    if (route.name === 'Write') {
+                        console.log(prevPage)
+                        navigation.navigate(route.name, {
+                            prevPage
+                        });
+
+                    } else {
+                        setPrevPage(route.name)
+                        navigation.navigate(route.name);
+                    }
                 }
             };
     

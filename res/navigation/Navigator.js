@@ -22,11 +22,17 @@ import TabBarContainer from './TabBarContainer';
 import ShopCart from '../pages/mypage/ShopCart';
 import Favorite from '../pages/mypage/Favorites'
 
-// CommunityTopTapPage
+// Community TopTap Page
 import Community from '../pages/community/Community'
 import Boast from '../pages/community/Boast'
 import Ask from '../pages/community/Ask'
 import Free from '../pages/community/Free'
+
+// Write Page
+import ChatWrite from '../pages/write/ChatWrite'
+import CommunityWrite from '../pages/write/CommunityWrite'
+import StoreWrite from '../pages/write/StoreWrite'
+
 
 const Top = createMaterialTopTabNavigator();
 const Stack = createStackNavigator();
