@@ -1,12 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-export default StyleSheet.create({
-  alwaysRed: {
-    backgroundColor: 'red',
-    height: 100,
-    width: 100,
-  },
-  font: {
-    // fontFamily: '돋움'
-  }
-});
+export const fontStyle = {
+  COLOR_ORANGE: '#FF7B00',
+  COLOR_GREEN: '#37C85D'
+}

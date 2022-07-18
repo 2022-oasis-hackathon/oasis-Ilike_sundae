@@ -1,25 +1,34 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+// components
+import Header from '../components/Header';
+
+// page
 import DetailPage from '../pages/store/DetailPage';
 import MainPage from '../pages/store/MainPage';
 import AboutPage from '../pages/store/AboutPage';
 import LikePage from '../pages/store/LikePage';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { getHeaderTitle } from '@react-navigation/elements';
-import Header from '../components/Header';
+
 // bottom tap page
 import Chat from '../pages/chat/Chat'
-import Store from '../pages/store/Store';
 import Write from '../pages/write/Write'
-import Community from '../pages/community/Community'
 import Mypage from '../pages/mypage/Mypage'
 import TabBarContainer from './TabBarContainer';
 
-// mypage
+// MyPage
 import ShopCart from '../pages/mypage/ShopCart';
 import Favorite from '../pages/mypage/Favorites'
 
+// CommunityTopTapPage
+import Community from '../pages/community/Community'
+import Boast from '../pages/community/Boast'
+import Ask from '../pages/community/Ask'
+import Free from '../pages/community/Free'
+
+const Top = createMaterialTopTabNavigator();
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -37,6 +46,23 @@ const MypageNavigator = () => {
     )
 }
 
+const CommunityTopTapNavigator = () => {
+    return (
+        <Top.Navigator
+            screenOptions={{
+                tabBarActiveTintColor: '#000',
+                tabBarInactiveTintColor:'#aaa',
+                tabBarIndicatorStyle: {borderColor: 'black', borderBottomWidth: 2, marginLeft: 10, width: 50},
+                tabBarItemStyle: {width: 70, height: 40}
+            }}
+        >
+            <Top.Screen name='CommunityHome' component={Community} options={{ title: '홈' }} />
+            <Top.Screen name='Boast' component={Boast} options={{ title: '자랑 팜' }} />
+            <Top.Screen name='Ask' component={Ask} options={{ title: '질문 팜' }} />
+            <Top.Screen name='Free' component={Free} options={{ title: '자유 팜' }} />
+        </Top.Navigator>
+    )
+}
 const CommunityNavigator = () => {
     return (
         <Stack.Navigator
@@ -47,7 +73,7 @@ const CommunityNavigator = () => {
                 },
             }}
         >
-            <Stack.Screen name='Community' component={Community} 
+            <Stack.Screen name='Community' component={CommunityTopTapNavigator} 
                 options={({ navigation, route }) => ({
                     headerTitle: (props) => <Header {...props} page={route} navigation={navigation} />,
                 })}

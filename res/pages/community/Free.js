@@ -2,12 +2,12 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import Layout from '../../components/Layout'
 
-const Community = () => {
+const Free = () => {
   return (
     <Layout>
-      <Text>Community</Text>
+      <Text>Free</Text>
     </Layout>
   )
 }
 
-export default Community
+export default Free

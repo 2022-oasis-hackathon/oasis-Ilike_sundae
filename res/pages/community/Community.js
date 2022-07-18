@@ -42,10 +42,12 @@ export default function MainPage({navigation,route}) {
         
         <View style={styles.topPicItem} horizontal indicatorStyle={"white"}>
           <View style={styles.topPicHeadder}>
-          <Text style={styles.topPic}>자랑 팜</Text>
-          <TouchableOpacity style={styles.topPicButton}><Text style={{ color: '#888', fontSize: 24, fontWeight: '500', alignSelf:'flex-end' }}>
-                            {'>'}
-                          </Text></TouchableOpacity>
+            <TouchableOpacity style={styles.topPicButton} onPress={() => navigation.navigate('Boast')} >
+              <Text style={styles.topPic}>자랑 팜</Text>
+              <Text style={{ color: '#888', fontSize: 20, fontWeight: '500', lineHeight: 20 }}>
+                {'>'}
+              </Text>
+            </TouchableOpacity>
           </View>
           
           <ScrollView horizontal indicatorStyle={"white"}>
@@ -61,11 +63,13 @@ export default function MainPage({navigation,route}) {
 
             {/*TODO:  인기글 3개 나열  */}
         <View style={styles.topPicItem}>
-        <View style={styles.topPicHeadder}>
-          <Text style={styles.topPic}>질문 팜</Text>
-          <TouchableOpacity style={styles.topPicButton}><Text style={{ color: '#888', fontSize: 24, fontWeight: '500', alignSelf:'flex-end' }}>
-                            {'>'}
-                          </Text></TouchableOpacity>
+          <View style={styles.topPicHeadder}>
+            <TouchableOpacity style={styles.topPicButton} onPress={() => navigation.navigate('Ask')} >
+              <Text style={styles.topPic}>질문 팜</Text>
+              <Text style={{ color: '#888', fontSize: 20, fontWeight: '500', lineHeight: 20 }}>
+                {'>'}
+              </Text>
+            </TouchableOpacity>
           </View>
           <ScrollView horizontal indicatorStyle={"white"}>
             {
@@ -79,11 +83,13 @@ export default function MainPage({navigation,route}) {
         </View>
 
         <View style={styles.topPicItem} horizontal indicatorStyle={"white"}>
-        <View style={styles.topPicHeadder}>
-          <Text style={styles.topPic}>자유 팜</Text>
-          <TouchableOpacity style={styles.topPicButton}><Text style={{ color: '#888', fontSize: 24, fontWeight: '500', alignSelf:'flex-end' }}>
-                            {'>'}
-                          </Text></TouchableOpacity>
+          <View style={styles.topPicHeadder}>
+              <TouchableOpacity style={styles.topPicButton} onPress={() => navigation.navigate('Free')} >
+                <Text style={styles.topPic}>자유 팜</Text>
+                <Text style={{ color: '#888', fontSize: 20, fontWeight: '500', lineHeight: 20 }}>
+                  {'>'}
+                </Text>
+              </TouchableOpacity>
           </View>
            <ScrollView horizontal indicatorStyle={"white"}>
             {
@@ -92,15 +98,11 @@ export default function MainPage({navigation,route}) {
               })
             }
           </ScrollView>
-            
-            
         </View>
-
-
-
       </View>
    
-    </ScrollView>)
+    </ScrollView>
+  )
 }
 
 const styles = StyleSheet.create({
@@ -111,8 +113,7 @@ const styles = StyleSheet.create({
   banner:{
     width:'90%',
     height:200,
-    borderRadius:10,
-    marginTop:20,
+    marginTop:16,
     alignSelf:"center"
   },
 
@@ -135,45 +136,49 @@ weather:{
   },
  
   topPicContainer:{
-    backgroundColor:'#ddd',
+    backgroundColor:'#f2f2f2',
     marginTop:10,
-    shadowColor:'#ddd'
+    shadowColor:'#f2f2f2',
+    paddingBottom: 8
   },
  
   topPicTitle:{
-    fontSize:20,
-    paddingTop:20,
-    paddingLeft:20
+    fontSize:16,
+    paddingTop:14,
+    paddingLeft:16,
+    fontWeight: '600'
   },
 
   topPicItem: {
-    marginTop:20,
-    marginLeft:10,
+    marginTop:8,
+    padding: 12,
     backgroundColor:'#fff',
-    borderRadius:10
+    borderTopLeftRadius: 8,
+    borderBottomLeftRadius: 8,
+    marginLeft: 8
   },
   topPicHeadder:{
     flex:1,
     flexDirection:'row',
-    height:40,
-    borderBottomWidth:2,
-    borderBottomColor:'#000',
-    
+    height: 36,
+    borderBottomWidth:1,
+    borderBottomColor:'#d2d2d2',
   },
 
 
   topPic:{
-    flex:1,
-    alignSelf:'flex-start',
-    fontWeight:'500',
-    paddingTop:10,
-    paddingLeft:40
+    fontSize: 14,
+    fontWeight: '500',
+    color: '#4d4d4d'
   },
 
   topPicButton:{
-    flex:1,
-    fontWeight:'500',
-    paddingLeft:40
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
+    padding: 8,
   }
 
 

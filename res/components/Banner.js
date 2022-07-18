@@ -30,13 +30,13 @@ export default class Banner extends React.Component {
                       ),
                     }}
                   >
-                      <View style={{flex:1,alignItems:"center",justifyContent:"center",backgroundColor:"rgba(20,20,200,0.3)"}}>
+                      <View style={{flex:1,alignItems:"center",justifyContent:"center",backgroundColor:"rgba(20,20,200,0.3)", borderRadius: 4}}>
                           <Text>Slide 1</Text>
                       </View>
-                      <View style={{flex:1,alignItems:"center",justifyContent:"center",backgroundColor:"rgba(20,200,20,0.3)"}}>
+                      <View style={{flex:1,alignItems:"center",justifyContent:"center",backgroundColor:"rgba(20,200,20,0.3)", borderRadius: 4}}>
                           <Text>Slide 2</Text>
                       </View>
-                      <View style={{flex:1,alignItems:"center",justifyContent:"center",backgroundColor:"rgba(200,20,20,0.3)"}}>
+                      <View style={{flex:1,alignItems:"center",justifyContent:"center",backgroundColor:"rgba(200,20,20,0.3)", borderRadius: 4}}>
                           <Text>Slide 3</Text>
                       </View>
                   </Swiper>
