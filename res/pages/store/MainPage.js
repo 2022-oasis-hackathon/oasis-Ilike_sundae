@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView} from 'react-native';
 
-
 import { StatusBar } from 'expo-status-bar';
 import * as Location from "expo-location";
 import axios from "axios";
@@ -9,7 +8,7 @@ import axios from "axios";
 import Card from '../../components/Card';
 import Loading from '../../components/Loading';
 import Banner from '../../components/Banner';
- import {firebase_db} from "../../../firebaseConfig" // firebase 기능 
+import {firebase_db} from "../../../firebaseConfig" // firebase 기능 
 
 
 

@@ -12,6 +12,8 @@ import Store from '../pages/store/Store';
 import Write from '../pages/write/Write'
 import Community from '../pages/community/Community'
 import Mypage from '../pages/mypage/Mypage'
+import TabBar from './TabBar';
+import TabBarContainer from './TabBarContainer';
 
 
 const Stack = createStackNavigator();
@@ -82,14 +84,15 @@ const BottomTapNavigator = () => {
         <Tab.Navigator
         // tabBar 속성으로 ui 커스텀해야함
             screenOptions={{
-                headerShown: false
-            }}    
+                headerShown: false,
+            }}
+            tabBar={props => <TabBarContainer {...props}/>}
         >
-            <Tab.Screen name='StoreNavigator' component={StoreNavigator} options={{ title: '스토어' }} />
-            <Tab.Screen name='ChatNavigation' component={ChatNavigation} options={{ title: '채팅' }} />
-            <Tab.Screen name='Write' component={Write} options={{ title: '' }} />
-            <Tab.Screen name='CommunityNavigator' component={CommunityNavigator} options={{ title: '커뮤니티' }} />
-            <Tab.Screen name='MypageNavigator' component={MypageNavigator} options={{ title: '내정보' }} />
+            <Tab.Screen name='StoreNavigator' component={StoreNavigator} />
+            <Tab.Screen name='ChatNavigation' component={ChatNavigation} />
+            <Tab.Screen name='Write' component={Write} />
+            <Tab.Screen name='CommunityNavigator' component={CommunityNavigator} />
+            <Tab.Screen name='MypageNavigator' component={MypageNavigator} />
         </Tab.Navigator>
     )
 }

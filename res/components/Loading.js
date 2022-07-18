@@ -8,11 +8,15 @@ export default function Loading(){
 
 const styles = StyleSheet.create({
     container: {
-        
-        flex:1,
+        display: 'flex',
         justifyContent:'center',
         alignItems:'center',
         backgroundColor: '#fdc453',
+        height: '100%',
+        width: '100%',
+        position: 'absolute',
+        top: 0,
+        left: 0
     },
     title: {
         fontSize:20,
