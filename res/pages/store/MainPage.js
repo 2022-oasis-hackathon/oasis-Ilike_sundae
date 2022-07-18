@@ -17,11 +17,11 @@ export default function MainPage({navigation,route}) {
   const [cateState,setCateState] = useState([])
   const [ready,setReady] = useState(true) // 데이터 받아 오기전까지 로딩 페이지.
 
-  //날씨 데이터 상태관리 상태 생성!
-  // const [weather, setWeather] = useState({
-  //   temp : 0,
-  //   condition : ''
-  // })
+  // 날씨 데이터 상태관리 상태 생성!
+  const [weather, setWeather] = useState({
+    temp : 0,
+    condition : ''
+  })
 
 
   useEffect(()=>{
@@ -35,45 +35,45 @@ export default function MainPage({navigation,route}) {
         
         setState(seed)
         setCateState(seed)
-        // getLocation()
+        getLocation()
         setReady(false)
       });
   },1000)
  
   },[])
 // 위치 정보를 받아와 날씨정보 기능.
-  // const getLocation = async () => {
-  //   //수많은 로직중에 에러가 발생하면
-  //   //해당 에러를 포착하여 로직을 멈추고,에러를 해결하기 위한 catch 영역 로직이 실행
-  //   try {
-  //     //자바스크립트 함수의 실행순서를 고정하기 위해 쓰는 async,await
-  //     await Location.requestForegroundPermissionsAsync();
-  //     const locationData= await Location.getCurrentPositionAsync();
-  //     console.log(locationData)
-  //     console.log(locationData['coords']['latitude'])
-  //     console.log(locationData['coords']['longitude'])
-  //     const latitude = locationData['coords']['latitude']
-  //     const longitude = locationData['coords']['longitude']
-  //     const API_KEY = "cfc258c75e1da2149c33daffd07a911d";
-  //     const result = await axios.get(
-  //       `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`
-  //     );
+  const getLocation = async () => {
+    //수많은 로직중에 에러가 발생하면
+    //해당 에러를 포착하여 로직을 멈추고,에러를 해결하기 위한 catch 영역 로직이 실행
+    try {
+      //자바스크립트 함수의 실행순서를 고정하기 위해 쓰는 async,await
+      await Location.requestForegroundPermissionsAsync();
+      const locationData= await Location.getCurrentPositionAsync();
+      console.log(locationData)
+      console.log(locationData['coords']['latitude'])
+      console.log(locationData['coords']['longitude'])
+      const latitude = locationData['coords']['latitude']
+      const longitude = locationData['coords']['longitude']
+      const API_KEY = "cfc258c75e1da2149c33daffd07a911d";
+      const result = await axios.get(
+        `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`
+      );
 
-  //     console.log(result)
-  //     const temp = result.data.main.temp; 
-  //     const condition = result.data.weather[0].main
+      console.log(result)
+      const temp = result.data.main.temp; 
+      const condition = result.data.weather[0].main
       
-  //     console.log(temp)
-  //     console.log(condition)
+      console.log(temp)
+      console.log(condition)
 
-  //     setWeather({
-  //       temp,condition
-  //     })
+      setWeather({
+        temp,condition
+      })
 
-  //   } catch (error) {
-  //     Alert.alert("위치를 찾을 수가 없습니다.", "앱을 껏다 켜볼까요?");
-  //   }
-  // }
+    } catch (error) {
+      Alert.alert("위치를 찾을 수가 없습니다.", "앱을 껏다 켜볼까요?");
+    }
+  }
 
   const category = (cate) => {
     if(cate == "전체보기"){
@@ -92,11 +92,8 @@ export default function MainPage({navigation,route}) {
 
     <ScrollView style={styles.container}>
       <StatusBar style="light" />
-      {/* <Text style={styles.weather}>오늘의 날씨: {weather.temp + '°C   ' + weather.condition} </Text> */}
-       <TouchableOpacity style={styles.aboutButton} onPress={()=>{navigation.navigate('AboutPage')}}>
-          <Text style={styles.aboutButtonText}>소개 페이지</Text>
-        </TouchableOpacity>
-        {/* 슬릭 기능 추가. */}
+      <Text style={styles.weather}>오늘의 날씨: {weather.temp + '°C   ' + weather.condition} </Text>
+      
        
         <View style={styles.banner}><Banner/></View>
 

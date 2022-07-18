@@ -12,23 +12,23 @@
         "review":[
             {
                 "idx":0,
-               " writter": "user1",  
+               "writter": "user1",  
                 "reply": "좋네요"
             },
             {
                 "idx":1,
-                " writter": "user2",  
+                "writter": "user2",  
                  "reply": "별로"
              },
              {
                 
                 "idx":2,
-                " writter": "user3",  
+                "writter": "user3",  
                  "reply": "굿굿"
              },
              {
                 "idx":3,
-                " writter": "user4",  
+                "writter": "user4",  
                  "reply": "좋네요"
              }
         ]
@@ -45,23 +45,23 @@
         "review":[
             {
                 "idx":0,
-               " writter": "user1",  
+               "writter": "user1",  
                 "reply": "좋네요"
             },
             {
                 "idx":1,
-                " writter": "user2",  
+                "writter": "user2",  
                  "reply": "별로"
              },
              {
                 
                 "idx":2,
-                " writter": "user3",  
+                "writter": "user3",  
                  "reply": "굿굿"
              },
              {
                 "idx":3,
-                " writter": "user4",  
+                "writter": "user4",  
                  "reply": "좋네요"
              }
         ]
@@ -78,23 +78,23 @@
         "review":[
             {
                 "idx":0,
-               " writter": "user1",  
+               "writter": "user1",  
                 "reply": "좋네요"
             },
             {
                 "idx":1,
-                " writter": "user2",  
+                "writter": "user2",  
                  "reply": "별로"
              },
              {
                 
                 "idx":2,
-                " writter": "user3",  
+                "writter": "user3",  
                  "reply": "굿굿"
              },
              {
                 "idx":3,
-                " writter": "user4",  
+                "writter": "user4",  
                  "reply": "좋네요"
              }
         ]
@@ -111,23 +111,23 @@
         "review":[
             {
                 "idx":0,
-               " writter": "user1",  
+               "writter": "user1",  
                 "reply": "좋네요"
             },
             {
                 "idx":1,
-                " writter": "user2",  
+                "writter": "user2",  
                  "reply": "별로"
              },
              {
                 
                 "idx":2,
-                " writter": "user3",  
+                "writter": "user3",  
                  "reply": "굿굿"
              },
              {
                 "idx":3,
-                " writter": "user4",  
+                "writter": "user4",  
                  "reply": "좋네요"
              }
         ]
@@ -144,23 +144,23 @@
         "review":[
             {
                 "idx":0,
-               " writter": "user1",  
+               "writter": "user1",  
                 "reply": "좋네요"
             },
             {
                 "idx":1,
-                " writter": "user2",  
+                "writter": "user2",  
                  "reply": "별로"
              },
              {
                 
                 "idx":2,
-                " writter": "user3",  
+                "writter": "user3",  
                  "reply": "굿굿"
              },
              {
                 "idx":3,
-                " writter": "user4",  
+                "writter": "user4",  
                  "reply": "좋네요"
              }
         ]

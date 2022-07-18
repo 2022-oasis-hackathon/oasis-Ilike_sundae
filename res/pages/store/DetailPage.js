@@ -98,10 +98,14 @@ useEffect(()=>{
             <Image style={styles.image} source={{uri:seed.imgPath}}/>
            
             <View style={styles.textContainer}>
-                <Text style={styles.title}>{seed.title}</Text>
-                <Text style={styles.desc}>{seed.body}</Text>
-                <Text style={styles.price}>{seed.price}</Text>
+                <View style={styles.topWrap}>
+                    <Text style={styles.title}>{seed.title}</Text>
+                    <Text style={styles.price}>{seed.price} 원</Text>
+                </View>
+                
 
+                <Text style={styles.body}>{seed.body}</Text>
+                
                 <View style={styles.buttonGroup}>
                     <TouchableOpacity style={styles.button} onPress={()=>like()}><Text style={styles.buttonText}>좋아요</Text></TouchableOpacity>
                     <TouchableOpacity style={styles.button} onPress={()=>share()}><Text style={styles.buttonText}>팁 공유하기</Text></TouchableOpacity>
@@ -110,7 +114,7 @@ useEffect(()=>{
                 
             </View>
       
-        <View>
+        <View style={styles.review}>
             {
           seed.review.map((content,i)=>{
             return (<ReviewCard content={content} key={i} navigation={navigation}/>)
@@ -124,27 +128,40 @@ useEffect(()=>{
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor:"#000"
+        backgroundColor:"#fff"
     },
     image:{
-        height:400,
+        height:200,
         margin:10,
         marginTop:40,
         borderRadius:20
     },
     textContainer:{
         padding:20,
-        justifyContent:'center',
-        alignItems:'center'
+        justifyContent:'flex-start'
+    },
+    topWrap:{
+        flex:1,
+        flexDirection:'row'
+
     },
     title: {
-        fontSize:20,
+        fontSize:30,
         fontWeight:'700',
-        color:"#eee"
+        paddingLeft: 20,
+        color:"#000"
     },
-    desc:{
+    price:{
+        fontSize:30,
+        fontWeight:'700',
+        paddingLeft: 20,
+        color:"#000"
+
+    },
+    body:{
+        fontSize:20,
         marginTop:10,
-        color:"#eee"
+        color:"#000"
     },
     buttonGroup: {
         flexDirection:"row",
@@ -162,5 +179,9 @@ const styles = StyleSheet.create({
     buttonText:{
         color:'#fff',
         textAlign:'center'
+    },
+    review:{
+        borderTopWidth:5,
+        borderTopColor:'#eee'
     }
 })
