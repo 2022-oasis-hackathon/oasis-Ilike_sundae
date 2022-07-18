@@ -7,6 +7,7 @@ import AboutPage from '../pages/store/AboutPage';
 import LikePage from '../pages/store/LikePage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { getHeaderTitle } from '@react-navigation/elements';
+import Header from '../components/Header';
 // bottom tap page
 import Chat from '../pages/chat/Chat'
 import Store from '../pages/store/Store';
@@ -14,8 +15,10 @@ import Write from '../pages/write/Write'
 import Community from '../pages/community/Community'
 import Mypage from '../pages/mypage/Mypage'
 import TabBarContainer from './TabBarContainer';
-import Header from '../components/Header';
 
+// mypage
+import ShopCart from '../pages/mypage/ShopCart';
+import Favorite from '../pages/mypage/Favorites'
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -28,6 +31,8 @@ const MypageNavigator = () => {
         }}    
         >
             <Stack.Screen name='Mypage' component={Mypage} />
+            <Stack.Screen name='ShopCart' component={ShopCart} />
+            <Stack.Screen name='Favorite' component={Favorite} />
         </Stack.Navigator>
     )
 }
@@ -68,9 +73,9 @@ const StoreNavigator = () =>{
             
         >
             <Stack.Screen name="MainPage" component={MainPage}
-                options={{
-                    headerTitle: (props) => <Header {...props} page={'store'} />
-                }}
+                options={({ navigation, route }) => ({
+                    headerTitle: (props) => <Header {...props} page={route} navigation={navigation} />,
+                })}
             />
             <Stack.Screen name="DetailPage" component={DetailPage}/>
             <Stack.Screen name="AboutPage" component={AboutPage}/>
@@ -81,8 +86,8 @@ const StoreNavigator = () =>{
 
 const BottomTapNavigator = () => {
     return (
+
         <Tab.Navigator
-        // tabBar 속성으로 ui 커스텀해야함
             screenOptions={{
                 headerShown: false,
             }}
