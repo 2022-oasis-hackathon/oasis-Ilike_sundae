@@ -9,6 +9,8 @@ import Navigator from './res/navigation/Navigator';
 
 import { useFonts } from '@expo-google-fonts/inter'
 
+import SplashScreen from './res/components/SplashScreen';
+
 export default function App() {
 
   console.disableYellowBox = true;
@@ -16,6 +18,8 @@ export default function App() {
   let [fontsLoaded] = useFonts({
     '돋움': require('./res/assets/fonts/mg.ttf'),
   });
+
+ if (!fontsLoaded) return <SplashScreen />
 
   return ( 
   <NavigationContainer>
