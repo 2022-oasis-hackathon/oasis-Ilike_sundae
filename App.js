@@ -15,9 +15,11 @@ export default function App() {
 
   console.disableYellowBox = true;
 
+  // 폰트 로딩
   let [fontsLoaded] = useFonts({
     '돋움': require('./res/assets/fonts/mg.ttf'),
   });
+  // 이미지 로딩
 
  if (!fontsLoaded) return <SplashScreen />
 

@@ -25,9 +25,9 @@ export default function MainPage({navigation,route}) {
 
 
   useEffect(()=>{
-    navigation.setOptions({
-      title:'YingFarm'
-    })  // seed에 담김 .once('value')값들을 . then((snapshot))여기에 담어.
+    // navigation.setOptions({
+    //   title:'YingFarm'
+    // })  // seed에 담김 .once('value')값들을 . then((snapshot))여기에 담어.
     setTimeout(()=>{
       firebase_db.ref('/seed').once('value').then((snapshot) => {
         console.log("파이어베이스에서 데이터 가져왔습니다!!")

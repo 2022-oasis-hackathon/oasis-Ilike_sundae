@@ -6,6 +6,7 @@ import MainPage from '../pages/store/MainPage';
 import AboutPage from '../pages/store/AboutPage';
 import LikePage from '../pages/store/LikePage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { getHeaderTitle } from '@react-navigation/elements';
 // bottom tap page
 import Chat from '../pages/chat/Chat'
 import Store from '../pages/store/Store';
@@ -13,6 +14,7 @@ import Write from '../pages/write/Write'
 import Community from '../pages/community/Community'
 import Mypage from '../pages/mypage/Mypage'
 import TabBarContainer from './TabBarContainer';
+import Header from '../components/Header';
 
 
 const Stack = createStackNavigator();
@@ -60,17 +62,16 @@ const StoreNavigator = () =>{
             screenOptions={{
                 headerStyle: {
                     backgroundColor: "white",
-                    borderBottomColor: "white",
                     shadowColor: "white",
-                    height:100
                 },
-                headerTitleAlign:'left',
-                headerTintColor: "#000",
-                headerBackTitleVisible: false
             }}
             
         >
-            <Stack.Screen name="MainPage" component={MainPage}/>
+            <Stack.Screen name="MainPage" component={MainPage}
+                options={{
+                    headerTitle: (props) => <Header {...props} page={'store'} />
+                }}
+            />
             <Stack.Screen name="DetailPage" component={DetailPage}/>
             <Stack.Screen name="AboutPage" component={AboutPage}/>
             <Stack.Screen name="LikePage" component={LikePage}/>
