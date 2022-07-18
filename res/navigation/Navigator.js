@@ -52,8 +52,8 @@ const CommunityTopTapNavigator = () => {
             screenOptions={{
                 tabBarActiveTintColor: '#000',
                 tabBarInactiveTintColor:'#aaa',
-                tabBarIndicatorStyle: {borderColor: 'black', borderBottomWidth: 2, marginLeft: 10, width: 50},
-                tabBarItemStyle: {width: 70, height: 40}
+                tabBarIndicatorStyle: {borderColor: 'black', borderBottomWidth: 2, marginLeft: 10, width: 60},
+                tabBarItemStyle: {width: 80, height: 40}
             }}
         >
             <Top.Screen name='CommunityHome' component={Community} options={{ title: '홈' }} />
