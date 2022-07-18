@@ -1,173 +1,39 @@
 {
-    "seed":[
+    "article":[
         {
-        "idx":"0",
-        "title":"장수 사과",
-        "body":"아따 여기 장수 사과 맛나요",
-        "imgPath" : "http://www.smgnews.co.kr/imgdata/smgnews_co_kr/201809/2018091126216113.jpg",
-        "writter" : "user1" ,
-        "price": "5,000",
-        "hit": 0,
-        "regdate": "2022-07-09",
-        "review":[
-            {
-                "idx":0,
-               "writter": "user1",  
-                "reply": "좋네요"
-            },
-            {
-                "idx":1,
-                "writter": "user2",  
-                 "reply": "별로"
-             },
-             {
-                
-                "idx":2,
-                "writter": "user3",  
-                 "reply": "굿굿"
-             },
-             {
-                "idx":3,
-                "writter": "user4",  
-                 "reply": "좋네요"
-             }
-        ]
-    },
-    {
-        "idx":"1",
-        "title":"장수 사과",
-        "body":"아따 여기 장수 사과 맛나요",
-        "imgPath" : "http://www.smgnews.co.kr/imgdata/smgnews_co_kr/201809/2018091126216113.jpg",
-        "writter" : "user1" ,
-        "price": "5,000",
-        "hit": 0,
-        "regdate": "2022-07-09",
-        "review":[
-            {
-                "idx":0,
-               "writter": "user1",  
-                "reply": "좋네요"
-            },
-            {
-                "idx":1,
-                "writter": "user2",  
-                 "reply": "별로"
-             },
-             {
-                
-                "idx":2,
-                "writter": "user3",  
-                 "reply": "굿굿"
-             },
-             {
-                "idx":3,
-                "writter": "user4",  
-                 "reply": "좋네요"
-             }
-        ]
-    },
-    {
-        "idx":"2",
-        "title":"장수 사과",
-        "body":"아따 여기 장수 사과 맛나요",
-        "imgPath" : "http://www.smgnews.co.kr/imgdata/smgnews_co_kr/201809/2018091126216113.jpg",
-        "writter" : "user1" ,
-        "price": "5,000",
-        "hit": 0,
-        "regdate": "2022-07-09",
-        "review":[
-            {
-                "idx":0,
-               "writter": "user1",  
-                "reply": "좋네요"
-            },
-            {
-                "idx":1,
-                "writter": "user2",  
-                 "reply": "별로"
-             },
-             {
-                
-                "idx":2,
-                "writter": "user3",  
-                 "reply": "굿굿"
-             },
-             {
-                "idx":3,
-                "writter": "user4",  
-                 "reply": "좋네요"
-             }
-        ]
-    },
-    {
-        "idx":"3",
-        "title":"장수 사과",
-        "body":"아따 여기 장수 사과 맛나요",
-        "imgPath" : "http://www.smgnews.co.kr/imgdata/smgnews_co_kr/201809/2018091126216113.jpg",
-        "writter" : "user1" ,
-        "price": "5,000",
-        "hit": 0,
-        "regdate": "2022-07-09",
-        "review":[
-            {
-                "idx":0,
-               "writter": "user1",  
-                "reply": "좋네요"
-            },
-            {
-                "idx":1,
-                "writter": "user2",  
-                 "reply": "별로"
-             },
-             {
-                
-                "idx":2,
-                "writter": "user3",  
-                 "reply": "굿굿"
-             },
-             {
-                "idx":3,
-                "writter": "user4",  
-                 "reply": "좋네요"
-             }
-        ]
-    },
-    {
-        "idx":"4",
-        "title":"장수 사과",
-        "body":"아따 여기 장수 사과 맛나요",
-        "imgPath" : "http://www.smgnews.co.kr/imgdata/smgnews_co_kr/201809/2018091126216113.jpg",
-        "writter" : "user1" ,
-        "price": "5,000",
-        "hit": 0,
-        "regdate": "2022-07-09",
-        "review":[
-            {
-                "idx":0,
-               "writter": "user1",  
-                "reply": "좋네요"
-            },
-            {
-                "idx":1,
-                "writter": "user2",  
-                 "reply": "별로"
-             },
-             {
-                
-                "idx":2,
-                "writter": "user3",  
-                 "reply": "굿굿"
-             },
-             {
-                "idx":3,
-                "writter": "user4",  
-                 "reply": "좋네요"
-             }
-        ]
-    }
-    
+            "idx":0,
+            "writter":"user1",
+            "title":"나무는 이렇게 키우면 잘자라요~",
+            "body":"어린 나무는 매우 아름답지만, 이미 20 ~ 30 년 정도 뒤쳐진 나무들과 비교해 보면 그 나무들은 예전의 동종만큼 높은 장식 적 가치를 가지고 있지 않다는 것이 사실입니다. 아마도 그것이 우리가 그들을 사 자마자 우리가 그들의 성장률을 가속화하기 위해 할 수있는 모든 것을하는 이유 일 것입니다. 아니면 전부가 아닐 수도 있습니다.우리는 물을주는 것에 대해 걱정하지만 필요한 다른 치료를 제공하는 것을 잊는 경우가 많습니다. 따라서 그들을 알고 싶다면 계속 읽으십시오. 나무를 빨리 자라게하는 방법. ",
+            "img":"https://www.jardineriaon.com/wp-content/uploads/2017/05/Acer_pensylvanicum.jpg.webp",
+            "type":"boast", 
+            "like":0,
+            "regDate":"22.07.19"
+         
+        },
+           {
+            "idx":1,
+            "writter":"user2",
+            "title":"호박 기르는 방법",
+            "body":"호박으로 달콤하거나 짭짤한 음식을 만들 수 있다. 호박씨는 볶아 먹을 수 있다. 호박은 예쁘고 화사한 가을 장식품이 되기도 한다. 호박을 기르는 것은 쉽고 저렴하다. 다양한 지역에서 잘 자라기 때문이다. 이 글을 통해 심을 호박 품종을 선택하는 방법, 호박이 잘 자랄 수 있는 환경 찾는 방법, 호박을 길러 수확하는 방법을 알아보자.",
+            "img":"https://www.wikihow.com/images/thumb/c/cf/Grow-a-Pumpkin-Step-2-Version-2.jpg/v4-728px-Grow-a-Pumpkin-Step-2-Version-2.jpg.webp",
+            "type":"boast",
+            "like":0,
+            "regDate":"22.07.19"
+         
+        },    {
+            "idx":2,
+            "writter":"user2",
+            "title":"호박 기르는 방법",
+            "body":"호박으로 달콤하거나 짭짤한 음식을 만들 수 있다. 호박씨는 볶아 먹을 수 있다. 호박은 예쁘고 화사한 가을 장식품이 되기도 한다. 호박을 기르는 것은 쉽고 저렴하다. 다양한 지역에서 잘 자라기 때문이다. 이 글을 통해 심을 호박 품종을 선택하는 방법, 호박이 잘 자랄 수 있는 환경 찾는 방법, 호박을 길러 수확하는 방법을 알아보자.",
+            "img":"https://www.wikihow.com/images/thumb/c/cf/Grow-a-Pumpkin-Step-2-Version-2.jpg/v4-728px-Grow-a-Pumpkin-Step-2-Version-2.jpg.webp",
+            "type":"boast",
+            "like":0,
+            "regDate":"22.07.19"
+         
+        }    
     ]
-    }
+}
     
        
     
