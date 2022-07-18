@@ -12,7 +12,6 @@ import Store from '../pages/store/Store';
 import Write from '../pages/write/Write'
 import Community from '../pages/community/Community'
 import Mypage from '../pages/mypage/Mypage'
-import TabBar from './TabBar';
 import TabBarContainer from './TabBarContainer';
 
 

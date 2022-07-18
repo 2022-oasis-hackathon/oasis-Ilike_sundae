@@ -207,7 +207,7 @@ weather:{
     color:"#fff",
     fontWeight:"700",
     //텍스트의 현재 위치에서의 정렬 
-    textAlign:"center"
+    textAlign:"center",
   },
   middleButtonTextAll: {
     color:"#fff",

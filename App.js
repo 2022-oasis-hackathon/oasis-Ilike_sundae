@@ -7,11 +7,15 @@ import { StatusBar } from 'expo-status-bar';
 import {NavigationContainer} from '@react-navigation/native';
 import Navigator from './res/navigation/Navigator';
 
+import { useFonts } from '@expo-google-fonts/inter'
 
 export default function App() {
 
   console.disableYellowBox = true;
 
+  let [fontsLoaded] = useFonts({
+    '돋움': require('./res/assets/fonts/mg.ttf'),
+  });
 
   return ( 
   <NavigationContainer>
