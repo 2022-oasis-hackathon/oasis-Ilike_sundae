@@ -5,10 +5,10 @@ export default function LikeCard({content,navigation}){
     return(
       
         <View style={styles.card}>
-            <Image style={styles.cardImage} source={{uri:content.image}}/>
+            <Image style={styles.cardImage} source={{uri:content.imgPath}}/>
             <View style={styles.cardText}>
                 <Text style={styles.cardTitle} numberOfLines={1}>{content.title}</Text>
-                <Text style={styles.cardDesc} numberOfLines={3}>{content.desc}</Text>
+                <Text style={styles.cardDesc} numberOfLines={3}>{content.body}</Text>
                 <Text style={styles.cardDate}>{content.date}</Text>
             </View>
         </View>
