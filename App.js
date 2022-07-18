@@ -7,11 +7,21 @@ import { StatusBar } from 'expo-status-bar';
 import {NavigationContainer} from '@react-navigation/native';
 import Navigator from './res/navigation/Navigator';
 
+import { useFonts } from '@expo-google-fonts/inter'
+
+import SplashScreen from './res/components/SplashScreen';
 
 export default function App() {
 
   console.disableYellowBox = true;
 
+  // 폰트 로딩
+  let [fontsLoaded] = useFonts({
+    '돋움': require('./res/assets/fonts/mg.ttf'),
+  });
+  // 이미지 로딩
+
+ if (!fontsLoaded) return <SplashScreen />
 
   return ( 
   <NavigationContainer>
