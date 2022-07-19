@@ -78,7 +78,6 @@ export default function MainPage({navigation,route}) {
         }))
     }
 }
-
  
   return ready ? <Loading/> :  (
     <Layout>
@@ -99,6 +98,7 @@ export default function MainPage({navigation,route}) {
       <View style={styles.cardContainer}>
          {/* 하나의 카드 영역을 나타내는 View */}
          {
+          
           cateState && cateState.map((content,i)=>{
             return (<Card content={content} key={i} navigation={navigation}/>)
           })

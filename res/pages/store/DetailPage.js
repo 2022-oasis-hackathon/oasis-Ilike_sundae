@@ -45,7 +45,7 @@ export default function DetailPage({navigation,route}) {
     // }
 
     return ( 
-        <View style={{ backgroundColor: 'white' }} >
+        <View style={{ backgroundColor: 'white', paddingBottom: 80, minHeight: '100%' }} >
         <ScrollView style={styles.container}>
             <Image style={styles.image} source={{uri: route.params.imgPath}}/>
            
