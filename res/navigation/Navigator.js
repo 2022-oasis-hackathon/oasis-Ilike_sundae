@@ -2,6 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from '@expo/vector-icons/Ionicons'
 
 // components
 import Header from '../components/Header';
@@ -32,6 +33,7 @@ import Free from '../pages/community/Free'
 import ChatWrite from '../pages/write/ChatWrite'
 import CommunityWrite from '../pages/write/CommunityWrite'
 import StoreWrite from '../pages/write/StoreWrite'
+import { TouchableOpacity } from 'react-native';
 
 
 const Top = createMaterialTopTabNavigator();
@@ -123,7 +125,9 @@ const StoreNavigator = () =>{
                     headerTitle: (props) => <Header {...props} page={route} navigation={navigation} />,
                 })}
             />
-            <Stack.Screen name="DetailPage" component={DetailPage}/>
+            <Stack.Screen name="DetailPage" component={DetailPage}
+                options={{ title: "상품정보", headerBackTitleStyle: { display: 'none' },headerTintColor: 'black', headerRight: () => <TouchableOpacity><Ionicons name='share-outline' size={26} /></TouchableOpacity> }}
+            />
             <Stack.Screen name="AboutPage" component={AboutPage}/>
             <Stack.Screen name="LikePage" component={LikePage}/>
         </Stack.Navigator>

@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import { StyleSheet, Text, View, Image, ScrollView,TouchableOpacity,Alert,Share,FlatList } from 'react-native';
 import * as Linking from 'expo-linking';
 import {firebase_db} from "../../../firebaseConfig"
+import Ionicons from '@expo/vector-icons/Ionicons'
 
 import * as Application from 'expo-application';
 const isIOS = Platform.OS === 'ios';
@@ -49,15 +50,13 @@ const [seed, setSeed] = useState({
 })
 
    
-useEffect(()=>{
-    console.log(route)
-   
+useEffect(()=>{   
     //넘어온 데이터는 route.params에 들어 있습니다.
-    const { idx } = route.params;
-    firebase_db.ref('/seed/'+idx).once('value').then((snapshot) => {
-        let seed = snapshot.val();
-        setSeed(seed)
-    });
+    // const { idx } = route.params;
+    // firebase_db.ref('/seed/'+idx).once('value').then((snapshot) => {
+    //     let seed = snapshot.val();
+    //     setSeed(seed)
+    // });
 },[])
 
     const like = async () => {
@@ -79,7 +78,6 @@ useEffect(()=>{
          });
     }
 
-
     const share = () => {
         Share.share({
             message:`${seed.title} \n\n ${seed.body} `,
@@ -90,31 +88,69 @@ useEffect(()=>{
         Linking.openURL({address})
     }
     return ( 
-
-
         <ScrollView style={styles.container}>
-            <Image style={styles.image} source={{uri:seed.imgPath}}/>
+            <Image style={styles.image} source={{uri: route.params.imgPath}}/>
            
-            <View style={styles.textContainer}>
-                <View style={styles.topWrap}>
-                    <Text style={styles.title}>{seed.title}</Text>
-                    <Text style={styles.price}>{seed.price} 원</Text>
+            <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', height: 60, padding: 12, marginBottom: 4 }} >
+                <View style={{ flex: 1, justifyContent: 'center' }} >
+                    <View style={{ display: 'flex', alignItems: 'center', flexDirection: 'row' }} >
+                        <Image source={{uri:seed.imgPath}} style={{ width: 42, height: 42, borderRadius: "50%", marginRight: 4 }} />
+                    
+                        <View style={{ display: 'flex', justifyContent: 'center' }} >
+                            <Text style={{ fontSize: 14, fontWeight: '500' }} >
+                                {route.params.writter}
+                            </Text>
+                            <Text style={{ fontSize: 10, fontWeight: '500', color: '#6f6f6f' }} >
+                                {route.params.local}
+                            </Text>
+                        </View>
+                    </View>
+                </View>
+
+                <View  style={{ flex: 1, display: "flex", alignItems: 'flex-end', justifyContent: 'center'}} >
+                    <TouchableOpacity style={{ display: 'flex', alignItems: 'center', justifyContent: 'center',width: 160, height: 42, backgroundColor: '#37C85D', borderRadius: 4}} >
+                        <Text style={{ color: 'white', fontWeight: '600', fontSize: 14 }} >문의하기</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+
+
+
+
+            <View style={{ display: 'flex', padding: 12, paddingTop: 0}} >
+                <View style={{ display: 'flex', marginBottom: 12}} >
+                    <Text style={{ fontSize: 20, fontWeight: '700', marginBottom: 4, color: "#2f2f2f" }}>{seed.title}</Text>
+                    <Text style={{ fontSize: 18, fontWeight: '800', color: '#FF7B00' }}>{route.params.price}원 / {route.params.amount}</Text>
                 </View>
                 
 
-                <Text style={styles.body}>{seed.body}</Text>
+                <Text style={{ fontSize: 14, fontWeight: '500', color: '#3f3f3f', marginBottom: 8 }}>{route.params.body}</Text>
                 
-                <View style={styles.buttonGroup}>
+                <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: 16 }} >
+                    <View  style={{ display: 'flex', flexDirection: 'row', marginRight: 4, alignItems: 'center' }} >
+                      <Ionicons name='star-outline' size={11} style={{ marginRight: 2 }} />
+                      <Text style={{ fontSize: 10, fontWeight: '400', color: 'black' }}>132</Text>
+                    </View>
+
+                    <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }} >
+                      <Ionicons name='chatbubbles-outline' size={12} style={{ marginRight: 2 }} />
+                      <Text style={{ fontSize: 10, fontWeight: '400', color: 'black' }}>10</Text>
+                    </View>                
+                </View>
+
+                {/* <View style={styles.buttonGroup}>
                     <TouchableOpacity style={styles.button} onPress={()=>like()}><Text style={styles.buttonText}>좋아요</Text></TouchableOpacity>
                     <TouchableOpacity style={styles.button} onPress={()=>share()}><Text style={styles.buttonText}>팁 공유하기</Text></TouchableOpacity>
                     <TouchableOpacity style={styles.button} onPress={()=>link(address)}><Text style={styles.buttonText}>외부 링크</Text></TouchableOpacity>
-                </View>
-                
+                </View> */}
             </View>
       
+
+
+
         <View style={styles.review}>
-            {
-          seed && seed.review.map((content,i)=>{
+        {
+          route.params && route.params.review.map((content,i)=>{
             return (<ReviewCard content={content} key={i} navigation={navigation}/>)
           })
         }
@@ -126,31 +162,20 @@ useEffect(()=>{
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor:"#fff"
+        backgroundColor:"#fff",
     },
     image:{
-        height:200,
-        margin:10,
-        marginTop:40,
-        borderRadius:20
-    },
-    textContainer:{
-        padding:20,
-        justifyContent:'flex-start'
-    },
-    topWrap:{
-        flex:1,
-        flexDirection:'row'
-
+        width: '100%',
+        height: 240,
+        marginBottom: 8
     },
     title: {
-        fontSize:30,
-        fontWeight:'700',
-        paddingLeft: 20,
+        fontSize: 20,
+        fontWeight: '700',
         color:"#000"
     },
     price:{
-        fontSize:30,
+        fontSize:16,
         fontWeight:'700',
         paddingLeft: 20,
         color:"#000"
