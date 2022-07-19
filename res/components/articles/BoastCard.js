@@ -6,7 +6,7 @@ export default function BoastCard({content,navigation}){
   
 
     return(
-        <TouchableOpacity style={styles.card} onPress={()=>{navigation.navigate('Community',content)}}>
+        <TouchableOpacity style={styles.card} onPress={()=>{navigation.navigate('Detail',content)}}>
            <View style={styles.container}>
                 <Image style={styles.cardImage} source={{uri:content.img}} />
                 <View style={styles.middleBar}>

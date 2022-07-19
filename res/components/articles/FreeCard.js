@@ -4,7 +4,7 @@ import {View, Image, Text, StyleSheet,TouchableOpacity} from 'react-native'
 
 export default function FreeCard({content,navigation}){
     return(
-        <TouchableOpacity style={styles.card} onPress={()=>{navigation.navigate('Community',content)}}>
+        <TouchableOpacity style={styles.card} onPress={()=>{navigation.navigate('Detail',content)}}>
         
          <View style={styles.cardText}>
             <Text style={styles.writter}>{content.writter}</Text>

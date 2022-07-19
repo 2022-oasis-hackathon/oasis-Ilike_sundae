@@ -6,7 +6,7 @@ export default function AskCard({content,navigation}){
   
 
     return(
-        <TouchableOpacity style={styles.card} onPress={()=>{navigation.navigate('Community',content)}}>
+        <TouchableOpacity style={styles.card} onPress={()=>{navigation.navigate('Detail',content)}}>
          
                 <Image style={styles.cardImage} source={{uri:content.img}} />
                

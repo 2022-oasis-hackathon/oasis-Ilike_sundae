@@ -13,6 +13,8 @@ import MainPage from '../pages/store/MainPage';
 import AboutPage from '../pages/store/AboutPage';
 import LikePage from '../pages/store/LikePage';
 
+
+import Detail from '../pages/community/Detail'
 // bottom tap page
 import Chat from '../pages/chat/Chat'
 import Write from '../pages/write/Write'
@@ -82,6 +84,12 @@ const CommunityNavigator = () => {
             }}
         >
             <Stack.Screen name='Community' component={CommunityTopTapNavigator} 
+                options={({ navigation, route }) => ({
+                    headerTitle: (props) => <Header {...props} page={route} navigation={navigation} />,
+                })}
+            />
+
+            <Stack.Screen name='Detail' component={Detail} 
                 options={({ navigation, route }) => ({
                     headerTitle: (props) => <Header {...props} page={route} navigation={navigation} />,
                 })}
