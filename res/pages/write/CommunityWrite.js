@@ -24,12 +24,6 @@ export default function CommunityWrite() {
   //
   const [article,setArticle] = useState([]);
 
-
-  const radio= ()=>{
-    
-  }
-
-
   const UploadImg = () => {
    
   //권한 등록.
@@ -65,9 +59,9 @@ export default function CommunityWrite() {
   } 
 
   const addData = async () => {
-
+    const idx = 2 // autoimcrement기능 필요.
     let post = {
-       "idx":1,
+       "idx":idx,
        "writter":"user5",
        title,
       body,
@@ -79,12 +73,13 @@ export default function CommunityWrite() {
     // 날짜 / autoincrement / 로그인 > 회원정보
     setArticle(post)
   
-     firebase_db.ref('/article_test/').set(article,function(error){
+     firebase_db.ref('/article_test/'+idx).set(article,function(error){
          console.log(error)
          Alert.alert("추가되었습니다.!")
      });
   }
     return(
+      
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <SafeAreaView style={styles.container}>
   {UploadImg()}
