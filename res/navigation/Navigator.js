@@ -90,9 +90,7 @@ const CommunityNavigator = () => {
             />
 
             <Stack.Screen name='Detail' component={Detail} 
-                options={({ navigation, route }) => ({
-                    headerTitle: (props) => <Header {...props} page={route} navigation={navigation} />,
-                })}
+                options={{ headerTintColor: 'black', headerBackTitleStyle: { display: 'none' }, title: '게시글 상세', headerStyle: { borderBottomWidth: 1 } }}
             />
         </Stack.Navigator>
     )

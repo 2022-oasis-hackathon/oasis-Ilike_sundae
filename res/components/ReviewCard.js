@@ -8,7 +8,7 @@ export default function ReviewCard({content,navigation}){
     let isLike = ()=>{
         
     }
-    console.log(content)
+
     return(
       <View style={{ height: 150, padding: 12, borderBottomWidth: 1, borderColor: '#d4d4d4' }}>
         <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', marginBottom: 8 }} >
