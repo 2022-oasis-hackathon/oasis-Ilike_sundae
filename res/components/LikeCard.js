@@ -3,7 +3,7 @@ import {View, Image, Text, StyleSheet,TouchableOpacity} from 'react-native'
 
 export default function LikeCard({content,navigation}){
     return(
-      
+      <TouchableOpacity  onPress={()=>{navigation.navigate('DetailPage',content)}}>
         <View style={styles.card}>
             <Image style={styles.cardImage} source={{uri:content.imgPath}}/>
             <View style={styles.cardText}>
@@ -12,6 +12,7 @@ export default function LikeCard({content,navigation}){
                 <Text style={styles.cardDate}>{content.date}</Text>
             </View>
         </View>
+        </TouchableOpacity>
     )
 }
 

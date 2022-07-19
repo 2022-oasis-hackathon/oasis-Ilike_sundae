@@ -33,7 +33,7 @@ export default function LikePage({navigation,route}){
             
             
             
-            if(tip && tip.length > 0){  
+            if(seed && seed.length > 0){  
                 setSeed(seed);
                 setReady(false)
             }
@@ -47,7 +47,7 @@ export default function LikePage({navigation,route}){
     return (
         <ScrollView style={styles.container}>
         {
-            tip.map((content,i)=>{
+            seed.map((content,i)=>{
                 return(<LikeCard key={i} content={content} navigation={navigation}/>)
             })
         }
