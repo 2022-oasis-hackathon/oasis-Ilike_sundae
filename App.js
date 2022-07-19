@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useReducer} from 'react';
 // import MainPage from './pages/MainPage';
 // import DetailPage from './pages/DetailPage';
 import { StatusBar } from 'expo-status-bar';
@@ -10,6 +10,8 @@ import Navigator from './res/navigation/Navigator';
 import { useFonts } from '@expo-google-fonts/inter'
 
 import SplashScreen from './res/components/SplashScreen';
+
+export const Dispatch = React.createContext(null);
 
 export default function App() {
 
@@ -24,10 +26,12 @@ export default function App() {
  if (!fontsLoaded) return <SplashScreen />
 
   return ( 
-  <NavigationContainer>
-    <StatusBar style="gray" />
-    <Navigator/>
- </NavigationContainer>);
+
+      <NavigationContainer>
+        <StatusBar style="gray" />
+        <Navigator/>
+      </NavigationContainer>
+ );
 }
 
 

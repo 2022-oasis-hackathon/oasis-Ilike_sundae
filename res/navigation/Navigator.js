@@ -136,7 +136,6 @@ const StoreNavigator = () =>{
 
 const BottomTapNavigator = () => {
     return (
-
         <Tab.Navigator
             screenOptions={{
                 headerShown: false,

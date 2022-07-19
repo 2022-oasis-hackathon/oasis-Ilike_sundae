@@ -13,88 +13,46 @@ import seedData from '../../../data.json'
 import ReviewCard from '../../components/ReviewCard';
 
 export default function DetailPage({navigation,route}) {
-// 
 
-const [seed, setSeed] = useState({
-    "idx":"1",
-        "title":"장수 사과",
-        "body":"아따 여기 장수 사과 맛나요 어쩌구 ~ 저쩌구 ~ 어쩌구 ~ 저쩌구 ~어쩌구 ~ 저쩌구 ~어쩌구 ~ 저쩌구 ~어쩌구 ~ 저쩌구 ~",
-        "imgPath" : "http://www.smgnews.co.kr/imgdata/smgnews_co_kr/201809/2018091126216113.jpg",
-        "writter" : "user1" ,
-        "price": "5,000",
-        "hit": 0,
-        "regdate": "2022-07-09",
-        "review":[
-            {
-                "idx":0,
-               "writter": "user1",  
-                "reply": "좋네요"
-            },
-            {
-                "idx":1,
-                "writter": "user2",  
-                 "reply": "별로"
-             },
-             {
-                
-                "idx":2,
-                "writter": "user3",  
-                 "reply": "굿굿"
-             },
-             {
-                "idx":3,
-                "writter": "user4",  
-                 "reply": "좋네요"
-             }
-        ]
-})
 
-   
-useEffect(()=>{   
-    //넘어온 데이터는 route.params에 들어 있습니다.
-    // const { idx } = route.params;
-    // firebase_db.ref('/seed/'+idx).once('value').then((snapshot) => {
-    //     let seed = snapshot.val();
-    //     setSeed(seed)
-    // });
-},[])
+    // const like = async () => {
+    //     // like 방 안에
+    //     // 특정 사용자 방안에
+    //     // 특정 좋아요 데이터 아이디 방안에
+    //     // 특정 좋아요 데이터 몽땅 저장!
+    //     // 좋아요 데이터 방 > 사용자 방 > 어떤 찜인지 아이디
+    //     let userUniqueId;
+    //     if(isIOS){
+    //     let iosId = await Application.getIosIdForVendorAsync(); // 분기처리
+    //         userUniqueId = iosId
+    //     }else{
+    //         userUniqueId = await Application.androidId
+    //     }
+	//        firebase_db.ref('/like/'+userUniqueId+'/'+ seed.idx).set(seed,function(error){
+    //          console.log(error)
+    //          Alert.alert("좋아요!")
+    //      });
+    // }
 
-    const like = async () => {
-        // like 방 안에
-        // 특정 사용자 방안에
-        // 특정 좋아요 데이터 아이디 방안에
-        // 특정 좋아요 데이터 몽땅 저장!
-        // 좋아요 데이터 방 > 사용자 방 > 어떤 찜인지 아이디
-        let userUniqueId;
-        if(isIOS){
-        let iosId = await Application.getIosIdForVendorAsync(); // 분기처리
-            userUniqueId = iosId
-        }else{
-            userUniqueId = await Application.androidId
-        }
-	       firebase_db.ref('/like/'+userUniqueId+'/'+ seed.idx).set(seed,function(error){
-             console.log(error)
-             Alert.alert("좋아요!")
-         });
-    }
+    // const share = () => {
+    //     Share.share({
+    //         message:`${seed.title} \n\n ${seed.body} `,
+    //     });
+    // }
 
-    const share = () => {
-        Share.share({
-            message:`${seed.title} \n\n ${seed.body} `,
-        });
-    }
+    // const link = (address) => {   //  TODO : 게시물 페이지로 들가는 경로로 추가하기. 
+    //     Linking.openURL({address})
+    // }
 
-    const link = (address) => {   //  TODO : 게시물 페이지로 들가는 경로로 추가하기. 
-        Linking.openURL({address})
-    }
     return ( 
+        <View style={{ backgroundColor: 'white' }} >
         <ScrollView style={styles.container}>
             <Image style={styles.image} source={{uri: route.params.imgPath}}/>
            
             <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', height: 60, padding: 12, marginBottom: 4 }} >
                 <View style={{ flex: 1, justifyContent: 'center' }} >
                     <View style={{ display: 'flex', alignItems: 'center', flexDirection: 'row' }} >
-                        <Image source={{uri:seed.imgPath}} style={{ width: 42, height: 42, borderRadius: "50%", marginRight: 4 }} />
+                        <Image source={{uri: route.params.imgPath}} style={{ width: 42, height: 42, borderRadius: "50%", marginRight: 4 }} />
                     
                         <View style={{ display: 'flex', justifyContent: 'center' }} >
                             <Text style={{ fontSize: 14, fontWeight: '500' }} >
@@ -114,12 +72,9 @@ useEffect(()=>{
                 </View>
             </View>
 
-
-
-
             <View style={{ display: 'flex', padding: 12, paddingTop: 0}} >
                 <View style={{ display: 'flex', marginBottom: 12}} >
-                    <Text style={{ fontSize: 20, fontWeight: '700', marginBottom: 4, color: "#2f2f2f" }}>{seed.title}</Text>
+                    <Text style={{ fontSize: 20, fontWeight: '700', marginBottom: 4, color: "#2f2f2f" }}>{route.params.title}</Text>
                     <Text style={{ fontSize: 18, fontWeight: '800', color: '#FF7B00' }}>{route.params.price}원 / {route.params.amount}</Text>
                 </View>
                 
@@ -145,18 +100,25 @@ useEffect(()=>{
                 </View> */}
             </View>
       
-
-
-
-        <View style={styles.review}>
-        {
-          route.params && route.params.review.map((content,i)=>{
-            return (<ReviewCard content={content} key={i} navigation={navigation}/>)
-          })
-        }
+            <View style={styles.review}>
+            {
+                route.params && route.params.review.map((content,i)=>{
+                    return (<ReviewCard content={content} key={i} navigation={navigation}/>)
+                })
+            }
             </View>
         </ScrollView>
-    
+
+        <View style={{ position: 'absolute', bottom: 0,height: 50, display: 'flex', flexDirection: 'row', alignItems: 'center',justifyContent: 'space-between', padding: 12,  paddingTop: 0, paddingBottom: 0, backgroundColor: 'white', borderTopWidth: 1, borderColor: '#d4d4d4', marginBottom: 10 }} >
+            <TouchableOpacity style={{ display: 'flex', alignItems: 'center',justifyContent: 'center', width: '12.5%' }} >
+                <Ionicons name='star-outline' size={24} />
+            </TouchableOpacity>
+
+            <TouchableOpacity style={{ display: 'flex', alignItems: 'center',justifyContent: 'center', width: '87.5%', backgroundColor: 'orange', height: 42, borderRadius: 4 }} >
+                <Text style={{ color: "white", fontSize: 16, fontWeight: '600' }} >구매하기</Text>
+            </TouchableOpacity>
+        </View>
+    </View>
     )
 }
 

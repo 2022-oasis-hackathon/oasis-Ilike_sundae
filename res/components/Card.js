@@ -1,28 +1,21 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import {View, Image, Text, StyleSheet,TouchableOpacity, Dimensions} from 'react-native'
 import Ionicons from '@expo/vector-icons/Ionicons'
 
 const WIDTH = Dimensions.get('window').width
 
+
+
 export default function Card({content,navigation}){
+    
+  
 
-    let isLike = ()=>{
-        
-    }
-    //TODO : 필터기능 / 아이콘 추가 / 
+  const onPress = () => {
+    navigation.navigate('DetailPage',content)
+  }
+
     return(
-        // <TouchableOpacity style={styles.card} onPress={()=>{navigation.navigate('DetailPage',content)}}>
-        //     <Image style={styles.cardImage} source={{uri:content.imgPath}}/>
-        //     <View style={styles.cardText}>
-        //         <Text style={styles.cardTitle} numberOfLines={1}>{content.title}</Text>
-        //         <Text style={styles.text2}>{content.price} / {content.amount}</Text>
-        //         <Text style={styles.dealInfo}>* {content.local}</Text>
-        //         <Text style={styles.cardBody} numberOfLines={2}>{content.body}</Text>
-                
-        //     </View>
-        // </TouchableOpacity>
-
-        <TouchableOpacity style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: 120, width: '100%' }}  onPress={()=>{navigation.navigate('DetailPage',content)}}>
+        <TouchableOpacity style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: 120, width: '100%' }}  onPress={()=> onPress()}>
             <Image source={{uri:content.imgPath}} style={{ width: 100, height: 100, borderRadius: 4 }} />
             <View style={{ display: 'flex', marginLeft: 4, justifyContent: 'space-between', height: 100, width: WIDTH-100-42 }}>
                 
@@ -43,12 +36,12 @@ export default function Card({content,navigation}){
                 <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }} >
                     <View  style={{ display: 'flex', flexDirection: 'row', marginRight: 4, alignItems: 'center' }} >
                       <Ionicons name='star-outline' size={11} style={{ marginRight: 2 }} />
-                      <Text style={{ fontSize: 10, fontWeight: '400', color: 'black' }}>132</Text>
+                      <Text style={{ fontSize: 10, fontWeight: '400', color: 'black' }}>{content.idx}</Text>
                     </View>
 
                     <View  style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }} >
                       <Ionicons name='chatbubbles-outline' size={12} style={{ marginRight: 2 }} />
-                      <Text style={{ fontSize: 10, fontWeight: '400', color: 'black' }}>10</Text>
+                      <Text style={{ fontSize: 10, fontWeight: '400', color: 'black' }}>{content.review.length}</Text>
                     </View>                
                 </View>
             </View>

@@ -85,18 +85,17 @@ export default function MainPage({navigation,route}) {
 
     <ScrollView style={styles.container}>
       <StatusBar style="light" />
-      <Text style={styles.weather}>오늘의 날씨: {weather.temp + '°C   ' + weather.condition} </Text>
-      
+      {/* <Text style={styles.weather}>오늘의 날씨: {Math.floor(weather.temp) + '°C   ' + weather.condition} </Text> */}
        
-        <View style={styles.banner}><Banner/></View>
+      <View style={styles.banner}><Banner/></View>
 
-      <ScrollView style={styles.middleContainer} horizontal indicatorStyle={"white"}>
-      <TouchableOpacity style={styles.middleButtonAll} onPress={()=>{category('전체보기')}}><Text style={styles.middleButtonTextAll}>전체보기</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.middleButton01} onPress={()=>{category('생활')}}><Text style={styles.middleButtonText}>생활</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.middleButton02} onPress={()=>{category('재테크')}}><Text style={styles.middleButtonText}>재테크</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.middleButton03} onPress={()=>{category('반려견')}}><Text style={styles.middleButtonText}>반려견</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.middleButton04} onPress={()=>{navigation.navigate('LikePage')}}><Text style={styles.middleButtonText}>꿀팁 찜</Text></TouchableOpacity>
-      </ScrollView>
+      {/* <ScrollView style={styles.middleContainer} horizontal indicatorStyle={"white"}>
+          <TouchableOpacity style={styles.middleButtonAll} onPress={()=>{category('전체보기')}}><Text style={styles.middleButtonTextAll}>전체보기</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.middleButton01} onPress={()=>{category('생활')}}><Text style={styles.middleButtonText}>생활</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.middleButton02} onPress={()=>{category('재테크')}}><Text style={styles.middleButtonText}>재테크</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.middleButton03} onPress={()=>{category('반려견')}}><Text style={styles.middleButtonText}>반려견</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.middleButton04} onPress={()=>{navigation.navigate('LikePage')}}><Text style={styles.middleButtonText}>꿀팁 찜</Text></TouchableOpacity>
+      </ScrollView> */}
       <View style={styles.cardContainer}>
          {/* 하나의 카드 영역을 나타내는 View */}
          {
@@ -122,10 +121,10 @@ const styles = StyleSheet.create({
   banner:{
     width:'90%',
     //컨텐츠의 높이 값
-    height:200,
+    height:80,
     //컨텐츠의 모서리 구부리기
     borderRadius:10,
-    marginTop:20,
+    marginTop:12,
     //컨텐츠 자체가 앱에서 어떤 곳에 위치시킬지 결정(정렬기능)
     //각 속성의 값들은 공식문서에 고대로~ 나와 있음
     alignSelf:"center"
@@ -139,7 +138,9 @@ const styles = StyleSheet.create({
   },
 weather:{
     alignSelf:"flex-end",
-    paddingRight:20
+    paddingRight:12,
+    marginTop: -4,
+    marginBottom: -4
   },
   mainImage: {
     width:'90%',
