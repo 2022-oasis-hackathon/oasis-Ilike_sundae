@@ -28,8 +28,8 @@ export default function MainPage({navigation,route}) {
         setCateState(article)
         setReady(false)
       });
-  },1000)
- 
+    },1000)
+
   },[])
  
 
@@ -54,7 +54,7 @@ export default function MainPage({navigation,route}) {
     <View style={styles.topPicContainer}>
       <Text style={styles.topPicTitle}>실시간 인기글</Text>
         
-        <View style={styles.topPicItem} horizontal indicatorStyle={"white"}>
+      <View style={styles.topPicItem} horizontal indicatorStyle={"white"}>
           <View style={styles.topPicHeadder}>
             <TouchableOpacity style={styles.topPicButton} onPress={() => navigation.navigate('Boast')} >
               <Text style={styles.topPic}>자랑 팜</Text>
@@ -63,17 +63,15 @@ export default function MainPage({navigation,route}) {
               </Text>
             </TouchableOpacity>
           </View>
-          
+            
           <ScrollView horizontal indicatorStyle={"white"}>
             {
               state.map((content,i)=>{
                 return (<BoastCard content={content} key={i} navigation={navigation}/>)
               })
             }
-          </ScrollView>
-            
-            
-        </View>
+          </ScrollView>            
+      </View>
 
             {/*TODO:  인기글 3개 나열  */}
         <View style={styles.topPicItem}>
@@ -88,7 +86,8 @@ export default function MainPage({navigation,route}) {
           <ScrollView indicatorStyle={"white"}>
             {
                state.map((content,i)=>{
-                return (<AskCard content={content} key={i} navigation={navigation}/>)
+                if (i >= 3) return
+                else return <AskCard content={content} key={i} navigation={navigation}/>
               })
             }
           </ScrollView>
@@ -108,7 +107,8 @@ export default function MainPage({navigation,route}) {
           <ScrollView indicatorStyle={"white"}>
             {
                state.map((content,i)=>{
-                return (<FreeCard content={content} key={i} navigation={navigation}/>)
+                if (i >= 3) return
+                if (i < 3) return <FreeCard content={content} key={i} navigation={navigation}/>
               })
             }
           </ScrollView>
@@ -177,7 +177,7 @@ weather:{
     flexDirection:'row',
     height: 36,
     borderBottomWidth:1,
-    borderBottomColor:'#d2d2d2',
+    borderBottomColor:'#a4a4a4',
   },
 
 

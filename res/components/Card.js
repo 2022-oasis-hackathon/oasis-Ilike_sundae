@@ -15,7 +15,7 @@ export default function Card({content,navigation}){
   }
 
     return(
-        <TouchableOpacity style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: 120, width: '100%' }}  onPress={()=> onPress()}>
+        <TouchableOpacity style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: 120, width: '100%', borderBottomWidth: 1, borderColor: '#d4d4d4' }}  onPress={()=> onPress()}>
             <Image source={{uri:content.imgPath}} style={{ width: 100, height: 100, borderRadius: 4 }} />
             <View style={{ display: 'flex', marginLeft: 4, justifyContent: 'space-between', height: 100, width: WIDTH-100-42 }}>
                 
