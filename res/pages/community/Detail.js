@@ -30,7 +30,6 @@ export default function DetailPage({navigation,route}) {
             message:`${route.params.title} \n\n ${route.params.body} `,
         });
     }
-    console.log(route.params)
     
     return ( 
         <ScrollView style={styles.container}>
@@ -38,7 +37,7 @@ export default function DetailPage({navigation,route}) {
                 <View style={{ flex: 1, justifyContent: 'center' }} >
                     <View style={{ display: 'flex', alignItems: 'center', flexDirection: 'row' }} >
                        
-                        <Image source={{uri: route.params.imgPath}} style={{ width: 42, height: 42, borderRadius: "50%", marginRight: 4 }} />
+                        <Image source={{uri: route.params.imgPath}} style={{ width: 42, height: 42, borderRadius: 21, marginRight: 4 }} />
                     
                         <View style={{ display: 'flex', justifyContent: 'center' }} >
                             <Text style={{ fontSize: 14, fontWeight: '500' }} >

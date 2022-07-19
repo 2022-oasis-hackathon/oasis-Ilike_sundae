@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   banner:{
-    width:'90%',
+    width:'100%',
     //컨텐츠의 높이 값
     height:80,
     //컨텐츠의 모서리 구부리기

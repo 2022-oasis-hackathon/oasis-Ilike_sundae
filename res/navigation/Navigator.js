@@ -42,16 +42,47 @@ const Top = createMaterialTopTabNavigator();
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const MypageNavigator = () => {
+
+const StoreNavigator = () =>{
     return (
         <Stack.Navigator
             screenOptions={{
-                headerShown: false
-        }}    
+                headerStyle: {
+                    backgroundColor: "white",
+                    shadowColor: "white",
+                },
+            }}
+            
         >
-            <Stack.Screen name='Mypage' component={Mypage} />
-            <Stack.Screen name='ShopCart' component={ShopCart} />
-            <Stack.Screen name='Favorite' component={Favorite} />
+            <Stack.Screen name="MainPage" component={MainPage}
+                options={({ navigation, route }) => ({
+                    headerTitle: (props) => <Header {...props} page={route} navigation={navigation} />,
+                })}
+            />
+            <Stack.Screen name="DetailPage" component={DetailPage}
+                options={{ title: "상품정보", headerBackTitleStyle: { display: 'none' },headerTintColor: 'black', headerRight: () => <TouchableOpacity><Ionicons name='share-outline' size={26} /></TouchableOpacity> }}
+            />
+            <Stack.Screen name="AboutPage" component={AboutPage}/>
+            <Stack.Screen name="LikePage" component={LikePage}/>
+        </Stack.Navigator>
+    )
+}
+
+const ChatNavigation = () => {
+    return (
+        <Stack.Navigator
+            screenOptions={{
+                headerStyle: {
+                    backgroundColor: "white",
+                    shadowColor: "white",
+                },
+            }}
+        >
+            <Stack.Screen name='Chat' component={Chat} 
+                options={({ navigation, route }) => ({
+                    headerTitle: (props) => <Header {...props} page={route} navigation={navigation} />,
+                })}
+            />
         </Stack.Navigator>
     )
 }
@@ -96,49 +127,27 @@ const CommunityNavigator = () => {
     )
 }
 
-const ChatNavigation = () => {
+const MypageNavigator = () => {
     return (
         <Stack.Navigator
             screenOptions={{
-                headerStyle: {
-                    backgroundColor: "white",
-                    shadowColor: "white",
-                },
+                headerBackTitleStyle: { display: 'none'},
+                headerTintColor: 'black'
             }}
         >
-            <Stack.Screen name='Chat' component={Chat} 
-                options={({ navigation, route }) => ({
-                    headerTitle: (props) => <Header {...props} page={route} navigation={navigation} />,
-                })}
+            <Stack.Screen name='Mypage' component={Mypage} 
+                options={{ title: '나의 정보' }}
+            />
+            <Stack.Screen name='ShopCart' component={ShopCart}
+                options={{ title: '장바구니' }}
+            />
+            <Stack.Screen name='Favorite' component={Favorite}
+                options={{ title: '찜 목록' }}
             />
         </Stack.Navigator>
     )
 }
 
-const StoreNavigator = () =>{
-    return (
-        <Stack.Navigator
-            screenOptions={{
-                headerStyle: {
-                    backgroundColor: "white",
-                    shadowColor: "white",
-                },
-            }}
-            
-        >
-            <Stack.Screen name="MainPage" component={MainPage}
-                options={({ navigation, route }) => ({
-                    headerTitle: (props) => <Header {...props} page={route} navigation={navigation} />,
-                })}
-            />
-            <Stack.Screen name="DetailPage" component={DetailPage}
-                options={{ title: "상품정보", headerBackTitleStyle: { display: 'none' },headerTintColor: 'black', headerRight: () => <TouchableOpacity><Ionicons name='share-outline' size={26} /></TouchableOpacity> }}
-            />
-            <Stack.Screen name="AboutPage" component={AboutPage}/>
-            <Stack.Screen name="LikePage" component={LikePage}/>
-        </Stack.Navigator>
-    )
-}
 
 const BottomTapNavigator = () => {
     return (

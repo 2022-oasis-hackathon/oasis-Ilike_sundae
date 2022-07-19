@@ -13,9 +13,7 @@ export default function Favorites({navigation,route}){
     const [ready,setReady] = useState(true)
 
     useEffect(()=>{
-        navigation.setOptions({
-            title:'좋아요'
-        })
+
         getLike()
     },[])
 
