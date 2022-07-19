@@ -16,56 +16,34 @@ import BoastCard from '../../components/articles/BoastCard';
 
 export default function MainPage({navigation,route}) {
   const [state,setState] = useState([])
-  const [article,setArticle] = useState([
-    {
-      "idx":0,
-      "writter":"user1",
-      "title":"나무는 이렇게 키우면 잘자라요~",
-      "body":"어린 나무는 매우 아름답지만, 이미 20 ~ 30 년 정도 뒤쳐진 나무들과 비교해 보면 그 나무들은 예전의 동종만큼 높은 장식 적 가치를 가지고 있지 않다는 것이 사실입니다. 아마도 그것이 우리가 그들을 사 자마자 우리가 그들의 성장률을 가속화하기 위해 할 수있는 모든 것을하는 이유 일 것입니다. 아니면 전부가 아닐 수도 있습니다.우리는 물을주는 것에 대해 걱정하지만 필요한 다른 치료를 제공하는 것을 잊는 경우가 많습니다. 따라서 그들을 알고 싶다면 계속 읽으십시오. 나무를 빨리 자라게하는 방법. ",
-      "img":"https://www.jardineriaon.com/wp-content/uploads/2017/05/Acer_pensylvanicum.jpg.webp",
-      "type":"boast", 
-      "like":0,
-      "regDate":"22.07.19"
-   
-  },
-     {
-      "idx":1,
-      "writter":"user2",
-      "title":"호박 기르는 방법",
-      "body":"호박으로 달콤하거나 짭짤한 음식을 만들 수 있다. 호박씨는 볶아 먹을 수 있다. 호박은 예쁘고 화사한 가을 장식품이 되기도 한다. 호박을 기르는 것은 쉽고 저렴하다. 다양한 지역에서 잘 자라기 때문이다. 이 글을 통해 심을 호박 품종을 선택하는 방법, 호박이 잘 자랄 수 있는 환경 찾는 방법, 호박을 길러 수확하는 방법을 알아보자.",
-      "img":"https://www.wikihow.com/images/thumb/c/cf/Grow-a-Pumpkin-Step-2-Version-2.jpg/v4-728px-Grow-a-Pumpkin-Step-2-Version-2.jpg.webp",
-      "type":"boast",
-      "like":0,
-      "regDate":"22.07.19"
-   
-  },    {
-      "idx":2,
-      "writter":"user2",
-      "title":"호박 기르는 방법",
-      "body":"호박으로 달콤하거나 짭짤한 음식을 만들 수 있다. 호박씨는 볶아 먹을 수 있다. 호박은 예쁘고 화사한 가을 장식품이 되기도 한다. 호박을 기르는 것은 쉽고 저렴하다. 다양한 지역에서 잘 자라기 때문이다. 이 글을 통해 심을 호박 품종을 선택하는 방법, 호박이 잘 자랄 수 있는 환경 찾는 방법, 호박을 길러 수확하는 방법을 알아보자.",
-      "img":"https://www.wikihow.com/images/thumb/c/cf/Grow-a-Pumpkin-Step-2-Version-2.jpg/v4-728px-Grow-a-Pumpkin-Step-2-Version-2.jpg.webp",
-      "type":"boast",
-      "like":0,
-      "regDate":"22.07.19"
-   
-  }    
-  ]);
   const [cateState,setCateState] = useState([])
   const [ready,setReady] = useState(true) // 데이터 받아 오기전까지 로딩 페이지.
   
   useEffect(()=>{
     setTimeout(()=>{
-      firebase_db.ref('/seed').once('value').then((snapshot) => {
-        let seed = snapshot.val();
+      firebase_db.ref('/article').once('value').then((snapshot) => {
+        let article = snapshot.val();
         
-        setState(seed)
-        setCateState(seed)
+        setState(article)
+        setCateState(article)
         setReady(false)
       });
   },1000)
  
   },[])
  
+
+  const category = (cate) => {
+    if(cate == ""){
+        setCateState(state)
+    }else{
+        setCateState(state.filter((d)=>{
+            return d.category == cate
+        }))
+    }
+}
+
+
   return ready ? <Loading/> :  (
 
     <ScrollView style={styles.container}>
@@ -88,7 +66,7 @@ export default function MainPage({navigation,route}) {
           
           <ScrollView horizontal indicatorStyle={"white"}>
             {
-              article.map((content,i)=>{
+              state.map((content,i)=>{
                 return (<BoastCard content={content} key={i} navigation={navigation}/>)
               })
             }
@@ -109,7 +87,7 @@ export default function MainPage({navigation,route}) {
           </View>
           <ScrollView indicatorStyle={"white"}>
             {
-               article.map((content,i)=>{
+               state.map((content,i)=>{
                 return (<AskCard content={content} key={i} navigation={navigation}/>)
               })
             }
@@ -129,7 +107,7 @@ export default function MainPage({navigation,route}) {
           </View>
           <ScrollView indicatorStyle={"white"}>
             {
-               article.map((content,i)=>{
+               state.map((content,i)=>{
                 return (<FreeCard content={content} key={i} navigation={navigation}/>)
               })
             }

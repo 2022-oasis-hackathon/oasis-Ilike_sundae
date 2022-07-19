@@ -25,12 +25,12 @@ export default function BoastCard({content,navigation}){
 
 
 const styles = StyleSheet.create({
-    container:{
-
+    container:{      
+    flexWrap:"wrap", 
     },
     card:{
       flex:1,
-      width:200,
+      maxWidth:170,
       flexDirection:"column",
       margin:10,
       borderBottomWidth:0.5,
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     cardImage: {
       flex:1,
       width:'100%',
-      height:250,
+      height:188,
       borderRadius:10,
     },
     cardText: {
