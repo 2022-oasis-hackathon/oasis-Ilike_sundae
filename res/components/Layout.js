@@ -4,7 +4,7 @@ import React from 'react'
 const Layout = ({children}) => {
   return (
     <SafeAreaView>
-      <View style={{ padding: 12}} >
+      <View style={{ padding: 12, paddingBottom: 0, backgroundColor: 'white'}} >
         {children}
       </View>
     </SafeAreaView>

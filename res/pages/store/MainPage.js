@@ -1,15 +1,15 @@
 import React,{useState,useEffect} from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView,Button} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView} from 'react-native';
 
 import { StatusBar } from 'expo-status-bar';
 import * as Location from "expo-location";
 import axios from "axios";
-import * as Linking from 'expo-linking';
 
 import Card from '../../components/Card';
 import Loading from '../../components/Loading';
 import Banner from '../../components/Banner';
 import {firebase_db} from "../../../firebaseConfig" // firebase 기능 
+import Layout from '../../components/Layout';
 
 
 
@@ -33,7 +33,6 @@ export default function MainPage({navigation,route}) {
       firebase_db.ref('/seed').once('value').then((snapshot) => {
         console.log("파이어베이스에서 데이터 가져왔습니다!!")
         let seed = snapshot.val();
-        
         setState(seed)
         setCateState(seed)
         getLocation()
@@ -50,9 +49,6 @@ export default function MainPage({navigation,route}) {
       //자바스크립트 함수의 실행순서를 고정하기 위해 쓰는 async,await
       await Location.requestForegroundPermissionsAsync();
       const locationData= await Location.getCurrentPositionAsync();
-      console.log(locationData)
-      console.log(locationData['coords']['latitude'])
-      console.log(locationData['coords']['longitude'])
       const latitude = locationData['coords']['latitude']
       const longitude = locationData['coords']['longitude']
       const API_KEY = "cfc258c75e1da2149c33daffd07a911d";
@@ -60,12 +56,9 @@ export default function MainPage({navigation,route}) {
         `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`
       );
 
-      console.log(result)
       const temp = result.data.main.temp; 
       const condition = result.data.weather[0].main
-      
-      console.log(temp)
-      console.log(condition)
+
 
       setWeather({
         temp,condition
@@ -76,10 +69,6 @@ export default function MainPage({navigation,route}) {
     }
   }
 
-  
-  const link = (address) => {   //  TODO : 게시물 페이지로 들가는 경로로 추가하기. 
-    Linking.openURL({address})
-  }
   const category = (cate) => {
     if(cate == "전체보기"){
         setCateState(state)
@@ -90,14 +79,16 @@ export default function MainPage({navigation,route}) {
     }
 }
 
+ 
   return ready ? <Loading/> :  (
+    <Layout>
 
     <ScrollView style={styles.container}>
       <StatusBar style="light" />
       <Text style={styles.weather}>오늘의 날씨: {weather.temp + '°C   ' + weather.condition} </Text>
       
        
-      <View style={styles.adContainer}></View>
+        <View style={styles.banner}><Banner/></View>
 
       <ScrollView style={styles.middleContainer} horizontal indicatorStyle={"white"}>
       <TouchableOpacity style={styles.middleButtonAll} onPress={()=>{category('전체보기')}}><Text style={styles.middleButtonTextAll}>전체보기</Text></TouchableOpacity>
@@ -109,7 +100,7 @@ export default function MainPage({navigation,route}) {
       <View style={styles.cardContainer}>
          {/* 하나의 카드 영역을 나타내는 View */}
          {
-          cateState.map((content,i)=>{
+          cateState && cateState.map((content,i)=>{
             return (<Card content={content} key={i} navigation={navigation}/>)
           })
         }
@@ -118,7 +109,9 @@ export default function MainPage({navigation,route}) {
         
       </View>
    
-    </ScrollView>)
+    </ScrollView>
+  </Layout>
+    )
 }
 
 const styles = StyleSheet.create({
@@ -148,15 +141,13 @@ weather:{
     alignSelf:"flex-end",
     paddingRight:20
   },
-
-  adContainer:{
-    width:'95%',
-    height:120,
-    backgroundColor:'#eaae23',
-    alignSelf:'center',
-    marginTop:5
+  mainImage: {
+    width:'90%',
+    height:200,
+    borderRadius:10,
+    marginTop:20,
+    alignSelf:"center"
   },
-
   middleContainer:{
     marginTop:20,
     marginLeft:10,

@@ -73,8 +73,6 @@ useEffect(()=>{
         }else{
             userUniqueId = await Application.androidId
         }
-
-        console.log(userUniqueId)
 	       firebase_db.ref('/like/'+userUniqueId+'/'+ seed.idx).set(seed,function(error){
              console.log(error)
              Alert.alert("좋아요!")
@@ -116,7 +114,7 @@ useEffect(()=>{
       
         <View style={styles.review}>
             {
-          seed.review.map((content,i)=>{
+          seed && seed.review.map((content,i)=>{
             return (<ReviewCard content={content} key={i} navigation={navigation}/>)
           })
         }

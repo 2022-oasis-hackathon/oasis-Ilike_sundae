@@ -12,9 +12,9 @@ export default class Banner extends React.Component {
               <View style={{flex:1}}>
                   <Swiper
                     from={1}
-                    minDistanceForAction={0.1}
+                    minDistanceForAction={1}
                     loop
-                    timeout={-2.5}
+                    timeout={5}
                     controlsProps={{
                       dotsTouchable: true,
                       prevPos: 'left',
