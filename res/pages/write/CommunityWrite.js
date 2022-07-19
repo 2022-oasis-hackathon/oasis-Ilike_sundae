@@ -1,5 +1,5 @@
 
-import {Pressable,Text,StyleSheet, Image,SafeAreaView,TextInput, TouchableOpacity,View} from "react-native";
+import {Pressable,Text,StyleSheet, Image,SafeAreaView,TextInput, TouchableOpacity,View, TouchableWithoutFeedback, Keyboard} from "react-native";
 import React,{useState,useEffect} from 'react'
 import Layout from '../../components/Layout'
 import data from '../../../data.json';
@@ -85,8 +85,8 @@ export default function CommunityWrite() {
      });
   }
     return(
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <SafeAreaView style={styles.container}>
-
   {UploadImg()}
     <View style={styles.textBox}>
       <Text style={styles.text}>제목 :</Text>
@@ -94,7 +94,7 @@ export default function CommunityWrite() {
     </View>
     
 {/*  */}
-<View style={{ marginTop: 50 }}>
+<View style={{ marginTop: 10 }}>
     <RadioButtonGroup 
       containerStyle={styles.radioGroup}
       selected={type}
@@ -108,21 +108,34 @@ export default function CommunityWrite() {
     </RadioButtonGroup>
   </View>
 <Text style={styles.desc}> 내용 </Text>
- <TextInput style={styles.input} onChangeText={setBody} value={body} />
-    
-
+    <View style={styles.contentBox}>
+    <TextInput style={styles.input2} onChangeText={setBody} value={body} />
+        
+    </View>
      <TouchableOpacity style={styles.submit} onPress={()=>addData()}><Text style={styles.buttonText}>추가하기</Text></TouchableOpacity>
      </SafeAreaView>
    
+
+  
+              
+                    
+    </TouchableWithoutFeedback>
     )
     
 }
 
 
 const styles = StyleSheet.create({
+  container:{
+    alignSelf:'center',
+  
+    marginLeft:10,
+    marginRight:10
+    
+  },
   imgBox:{
-    width: 150,
-    height: 150,
+    width: 110,
+    height: 110,
     borderWidth:1.5,
     borderRadius:5,
     borderColor:'#aaa'
@@ -149,19 +162,15 @@ const styles = StyleSheet.create({
     borderColor:'#aaa',
     padding: 10,
   },
-  container:{
-    alignSelf:'center',
-  
-    borderWidth:1,
-    borderRadius: 4,
-    marginLeft:10,
-    marginRight:10
-    
+  input2: {
+    width:'75%',
+    height: 40,
+    margin: 12,
+    padding: 10,
   },
   desc:{
-    display:'inline-block',
     fontSize:24,
-    paddingTop:4,
+    paddingTop:10,
     borderBottomWidth:2,
     borderColor:'#aaa'
 
@@ -173,7 +182,7 @@ const styles = StyleSheet.create({
   },
   textBox:{
     flexDirection:'row',
-   
+   paddingTop:15,
     alignItems:'center'
     
   },
@@ -181,11 +190,19 @@ text:{
   fontSize:20,
   padding:5
 },
+contentBox:{
+  width:340,
+  height: 300,
+  borderTopWidth:0.5,
+  borderColor:'#aaa'
+},
 radioGroup:{
   display:'flex',
+  width:'80%',
+  alignSelf:'flex-end',
   justifyContent:'space-around',
-  flexDirection:'row'
-
+  flexDirection:'row',
+  
 },
 submit:{
   display:'flex',
