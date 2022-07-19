@@ -1,9 +1,10 @@
 import React,{useState,useEffect} from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView,Button} from 'react-native';
 
 import { StatusBar } from 'expo-status-bar';
 import * as Location from "expo-location";
 import axios from "axios";
+import * as Linking from 'expo-linking';
 
 import Card from '../../components/Card';
 import Loading from '../../components/Loading';
@@ -75,6 +76,10 @@ export default function MainPage({navigation,route}) {
     }
   }
 
+  
+  const link = (address) => {   //  TODO : 게시물 페이지로 들가는 경로로 추가하기. 
+    Linking.openURL({address})
+  }
   const category = (cate) => {
     if(cate == "전체보기"){
         setCateState(state)
@@ -85,9 +90,6 @@ export default function MainPage({navigation,route}) {
     }
 }
 
-  let todayWeather = 10 + 17;
-  let todayCondition = "흐림"
- 
   return ready ? <Loading/> :  (
 
     <ScrollView style={styles.container}>
@@ -95,7 +97,7 @@ export default function MainPage({navigation,route}) {
       <Text style={styles.weather}>오늘의 날씨: {weather.temp + '°C   ' + weather.condition} </Text>
       
        
-        <View style={styles.banner}><Banner/></View>
+      <View style={styles.adContainer}></View>
 
       <ScrollView style={styles.middleContainer} horizontal indicatorStyle={"white"}>
       <TouchableOpacity style={styles.middleButtonAll} onPress={()=>{category('전체보기')}}><Text style={styles.middleButtonTextAll}>전체보기</Text></TouchableOpacity>
@@ -146,13 +148,15 @@ weather:{
     alignSelf:"flex-end",
     paddingRight:20
   },
-  mainImage: {
-    width:'90%',
-    height:200,
-    borderRadius:10,
-    marginTop:20,
-    alignSelf:"center"
+
+  adContainer:{
+    width:'95%',
+    height:120,
+    backgroundColor:'#eaae23',
+    alignSelf:'center',
+    marginTop:5
   },
+
   middleContainer:{
     marginTop:20,
     marginLeft:10,

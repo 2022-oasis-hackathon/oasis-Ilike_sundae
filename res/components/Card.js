@@ -6,14 +6,16 @@ export default function Card({content,navigation}){
     let isLike = ()=>{
         
     }
+    //TODO : 필터기능 / 아이콘 추가 / 
 
     return(
         <TouchableOpacity style={styles.card} onPress={()=>{navigation.navigate('DetailPage',content)}}>
             <Image style={styles.cardImage} source={{uri:content.imgPath}}/>
             <View style={styles.cardText}>
                 <Text style={styles.cardTitle} numberOfLines={1}>{content.title}</Text>
-                <Text style={styles.cardDate}>{content.date}</Text>
-                <Text style={styles.cardPrice}>{content.price} 원</Text>
+                <Text style={styles.text2}>{content.price} / {content.amount}</Text>
+                <Text style={styles.dealInfo}>* {content.local}</Text>
+                <Text style={styles.cardBody} numberOfLines={2}>{content.body}</Text>
                 
             </View>
         </TouchableOpacity>
@@ -49,14 +51,21 @@ const styles = StyleSheet.create({
     cardDesc: {
       fontSize:15
     },
-    cardDate: {
-      fontSize:10,
-      color:"#A6A6A6",
+    cardBody: {
+      paddingTop: 2,
+      fontSize:15,
+      color:"#000",
+      paddingRight:5,
     },
-    cardPrice:{
-        fontSize:25,
-        fontWeight:'400',
-        color:"#000",
-        alignSelf:"flex-end"
+    dealInfo:{
+      paddingTop:3,
+      fontSize:15,
+      color:"#888"
+    },
+    text2:{
+        paddingTop:3,
+        fontSize:15,
+        fontWeight:'500',
+        color:"#888"
     }
 });

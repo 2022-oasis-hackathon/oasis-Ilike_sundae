@@ -88,7 +88,7 @@ useEffect(()=>{
         });
     }
 
-    const link = (address) => {
+    const link = (address) => {   //  TODO : 게시물 페이지로 들가는 경로로 추가하기. 
         Linking.openURL({address})
     }
     return ( 
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
         borderRadius:7
     },
     buttonText:{
-        color:'#fff',
+        color:'#000',
         textAlign:'center'
     },
     review:{
