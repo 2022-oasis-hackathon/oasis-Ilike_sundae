@@ -109,7 +109,7 @@ export default function DetailPage({navigation,route}) {
             </View>
         </ScrollView>
 
-        <View style={{ position: 'absolute', bottom: 0,height: 50, display: 'flex', flexDirection: 'row', alignItems: 'center',justifyContent: 'space-between', padding: 12,  paddingTop: 0, paddingBottom: 0, backgroundColor: 'white', borderTopWidth: 1, borderColor: '#d4d4d4', marginBottom: 10 }} >
+        <View style={{ position: 'absolute', bottom: -20,height: 80, display: 'flex', flexDirection: 'row', alignItems: 'center',justifyContent: 'space-between', padding: 12,  paddingTop: 0, backgroundColor: 'white', borderTopWidth: 1, borderColor: '#d4d4d4', marginBottom: 10 }} >
             <TouchableOpacity style={{ display: 'flex', alignItems: 'center',justifyContent: 'center', width: '12.5%' }} >
                 <Ionicons name='star-outline' size={24} />
             </TouchableOpacity>
