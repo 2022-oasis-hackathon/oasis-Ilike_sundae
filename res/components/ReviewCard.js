@@ -18,10 +18,10 @@ export default function ReviewCard({content,navigation}){
           </View>
 
           <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '87.5%' }} >
-            <Text style={{ fontSize: 12, fontWeight: '600' }} >닉네임</Text>
+            <Text style={{ fontSize: 12, fontWeight: '600' }} >고길동</Text>
 
             <View style={{ display: 'flex', flexDirection: 'row' }} >
-              <Text style={{ fontSize: 10, fontWeight: '500', color: '#6d6d6d', marginRight: 4 }} >날짜</Text>
+              <Text style={{ fontSize: 10, fontWeight: '500', color: '#6d6d6d', marginRight: 4 }} >2022.07.20</Text>
               <TouchableOpacity>
                 <Ionicons name='settings-outline' size={12} />
               </TouchableOpacity>
@@ -31,21 +31,24 @@ export default function ReviewCard({content,navigation}){
 
         <View style={{ marginBottom: 8 }} >
             <View style={{ marginBottom: 2 }} >
-              <Text style={{ fontSize: 10, fontWeight: '500', color: '#2d2d2d' }} >맛 평점</Text>  
+              <Text style={{ fontSize: 10, fontWeight: '500', color: '#2d2d2d' }} >맛 평점: 4.2</Text>  
             </View>      
             <View>
               <Text style={{ fontSize: 10, fontWeight: '500', color: '#2d2d2d' }} >
-                신선도 평점
+                신선도 평점: 4.5
               </Text>
             </View>      
         </View>
 
+        <Text style={{ fontSize: 12, fontWeight: '500' }} >
+          배송도 정말 빠르고 맛, 신선도 둘 다 너무 훌륭해서 만족해요~
+        </Text>
         <Text style={{ fontSize: 12, fontWeight: '500', marginBottom: 4 }} >
-          본문
+          다음에도 또 시켜먹을것같아요
         </Text>
 
         <View >
-          <Text style={{ fontSize: 10 }} >좋아요 수</Text>
+          <Text style={{ fontSize: 10 }} >❤︎ 10</Text>
         </View>
 
       </View>

@@ -6,11 +6,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from '@expo/vector-icons/Ionicons'
 
 // icons
-import IHouse from '../assets/icons/house.svg'
-import ICommu from '../assets/icons/commu.svg'
-import IChat from '../assets/icons/chat.svg'
-import IPlus from '../assets/icons/plus.svg'
-import IUser from '../assets/icons/user.svg'
 
 // components
 import Header from '../components/Header';
