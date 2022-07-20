@@ -66,10 +66,9 @@ export default function CommunityWrite({ navigation, route }) {
     
 
     const addData = async () => {
-      
 
       let post = {
-      "idx":1,
+      "idx":5,
       title,
       body,
       "writter":"user1",
@@ -84,9 +83,11 @@ export default function CommunityWrite({ navigation, route }) {
     // 날짜 / autoincrement / 로그인 > 회원정보
     setSeed(post)
   
-    firebase_db.ref('/seed1/'+post.idx).set(seed,function(error){
+    firebase_db.ref('/seed/'+post.idx).set(seed,function(error){
       console.log(error)
-      Alert.alert("좋아요!")
+      Alert.alert("글 작성 완료!")
+      
+      navigation.navigate('StoreNavigator', { screen: 'DetailPage' })
   });
 
   }
@@ -112,7 +113,9 @@ export default function CommunityWrite({ navigation, route }) {
 
     return(
       <>
+      
     <Layout>
+      
         <View style={{ display: 'flex', flexDirection: 'row' }} >
           <TouchableOpacity  onPress={pickImage} style={{ display: 'flex', alignItems: "center", justifyContent: 'center', width: 120, height: 120, borderWidth: 1, borderRadius: 4, marginRight: 8 }} >
             <Ionicons name="camera-outline" size={48} color="#4d4d4d" />

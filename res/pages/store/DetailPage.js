@@ -33,7 +33,7 @@ export default function DetailPage({navigation,route}) {
         }else{
             userUniqueId = await Application.androidId
         }
-
+            return userUniqueId;
     }
 
 

@@ -24,7 +24,7 @@ export default function CommunityWrite({ navigation, route }) {
   const [price, setPrice] = useState("");
   const [amount, setAmount] = useState("");
   //
-  const [seed,setSeed] = useState([]);
+  const [article,setArticle] = useState([]);
 
 
 
@@ -85,11 +85,40 @@ export default function CommunityWrite({ navigation, route }) {
      
   }
   
+  const addData = async () => {
+
+    let post = {
+      "idx":5,
+      "like":0,
+      "regDate":"22.07.21",
+      title,
+      "writter":"user6",
+      body,
+      "type":"boast",
+      img      
+  }
+
+  // 날짜 / autoincrement / 로그인 > 회원정보
+  setArticle(post)
+
+  firebase_db.ref('/article/'+post.idx).set(article,function(error){
+    console.log(error)
+    Alert.alert("글 작성 완료!")
+    
+    navigation.navigate('StoreNavigator', { screen: 'DetailPage' })
+});
+
+}
+
+
+
 
   useEffect(() => {
     navigation.setOptions({
       title: '커뮤니티 글쓰기'
     })
+
+
 
   }, []);
 
