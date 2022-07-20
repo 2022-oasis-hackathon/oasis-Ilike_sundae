@@ -15,7 +15,7 @@ import DetailPage from '../pages/store/DetailPage';
 import MainPage from '../pages/store/MainPage';
 import AboutPage from '../pages/store/AboutPage';
 import LikePage from '../pages/store/LikePage';
-
+import Store2 from '../pages/store/StorePage2';
 
 import Detail from '../pages/community/Detail'
 // bottom tap page
@@ -28,6 +28,7 @@ import TabBarContainer from './TabBarContainer';
 import ShopCart from '../pages/mypage/ShopCart';
 import Favorite from '../pages/mypage/Favorites'
 import MyInfo from '../pages/mypage/Myinfo';
+
 
 // Community TopTap Page
 import Community from '../pages/community/Community'
@@ -52,7 +53,7 @@ import BuyList from '../pages/mypage/BuyList';
 const Top = createMaterialTopTabNavigator();
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-
+// 바텀 / 스택 / 탑 
 
 const StoreNavigator = () =>{
     return (
@@ -65,7 +66,7 @@ const StoreNavigator = () =>{
             }}
             
         >
-            <Stack.Screen name="MainPage" component={MainPage}
+            <Stack.Screen name="StoreTopTapNavigator" component={StoreTopTapNavigator}
                 options={({ navigation, route }) => ({
                     headerTitle: (props) => <Header {...props} page={route} navigation={navigation} />,
                 })}
@@ -103,6 +104,24 @@ const ChatNavigation = () => {
     )
 }
 
+const StoreTopTapNavigator = () => {
+    return (
+        <Top.Navigator
+            screenOptions={{
+                tabBarActiveTintColor: '#000',
+                tabBarInactiveTintColor:'#aaa',
+                tabBarIndicatorStyle: {borderColor: 'black', borderBottomWidth: 2, marginLeft: 10, width: 60},
+                tabBarItemStyle: {width: 80, height: 40},
+                
+            }}
+        >
+            <Top.Screen name='MainPage' component={MainPage} options={{ title: '대량 판매' }} />
+            <Top.Screen name='StorePage2' component={Store2} options={{ title: '소량 판매' }} />
+        </Top.Navigator>
+    )
+}
+
+
 const CommunityTopTapNavigator = () => {
     return (
         <Top.Navigator
@@ -120,6 +139,7 @@ const CommunityTopTapNavigator = () => {
         </Top.Navigator>
     )
 }
+
 const CommunityNavigator = () => {
     return (
         <Stack.Navigator

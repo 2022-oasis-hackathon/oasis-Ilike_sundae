@@ -68,10 +68,10 @@ export default function CommunityWrite({ navigation, route }) {
     const addData = async () => {
 
       let post = {
-      idx:5,
+      "idx":5,
       title,
       body,
-      writter:"user1",
+      "writter":"user1",
      local,
       price,
      amount,
@@ -83,7 +83,7 @@ export default function CommunityWrite({ navigation, route }) {
     // 날짜 / autoincrement / 로그인 > 회원정보
     setSeed(post)
   
-    firebase_db.ref('/seed/'+post.idx+'/').set(post,function(error){
+    firebase_db.ref('/seed/'+post.idx).set(post,function(error){
       console.log(error)
       Alert.alert("글 작성 완료!")
       
