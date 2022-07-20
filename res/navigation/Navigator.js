@@ -35,8 +35,14 @@ import Free from '../pages/community/Free'
 import ChatWrite from '../pages/write/ChatWrite'
 import CommunityWrite from '../pages/write/CommunityWrite'
 import StoreWrite from '../pages/write/StoreWrite'
-import { TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
+import Modify from '../pages/mypage/Modify';
 
+// mypage
+import Ing from '../pages/mypage/Ing';
+import Ed from '../pages/mypage/Ed'
+import Commu from '../pages/mypage/Commu'
+import { useNavigation } from '@react-navigation/native';
 
 const Top = createMaterialTopTabNavigator();
 const Stack = createStackNavigator();
@@ -128,6 +134,7 @@ const CommunityNavigator = () => {
 }
 
 const MypageNavigator = () => {
+    const navigation = useNavigation()
     return (
         <Stack.Navigator
             screenOptions={{
@@ -142,9 +149,34 @@ const MypageNavigator = () => {
                 options={{ title: '장바구니' }}
             />
             <Stack.Screen name='Favorite' component={Favorite}
-                options={{ title: '찜 목록' }}
+                options={{ 
+                    title: '찜 목록',
+                    headerLeft: () => <TouchableOpacity onPress={() => navigation.navigate('Ing')} ><Ionicons name='backspace-outline' size={28} /></TouchableOpacity>
+                }}
+            />
+            <Stack.Screen  name='Modify' component={Modify} 
+                options={{ 
+                    title: '프로필 수정',
+                    headerLeft: () => <TouchableOpacity onPress={() => navigation.navigate('Ing')} ><Ionicons name='backspace-outline' size={28} /></TouchableOpacity>
+                }}
             />
         </Stack.Navigator>
+    )
+}
+const MypageTopTapNavigator = () => {
+    return (
+        <Top.Navigator
+            screenOptions={{
+                tabBarActiveTintColor: '#000',
+                tabBarInactiveTintColor:'#aaa',
+                tabBarIndicatorStyle: {borderColor: 'black', borderBottomWidth: 2, marginLeft: 10, width: 60},
+                tabBarItemStyle: {width: 80, height: 40}
+            }}
+        >
+            <Top.Screen name='Ing' component={Ing} options={{ title: '판매 중' }} />
+            <Top.Screen name='Ed' component={Ed} options={{ title: '판매 완료' }} />
+            <Top.Screen name='Commu' component={Commu} options={{ title: '커뮤니티' }} />
+        </Top.Navigator>
     )
 }
 
@@ -161,7 +193,14 @@ const BottomTapNavigator = () => {
             <Tab.Screen name='ChatNavigation' component={ChatNavigation} />
             <Tab.Screen name='Write' component={Write} />
             <Tab.Screen name='CommunityNavigator' component={CommunityNavigator} />
+            <Tab.Screen name='MypageTopTapNavigator' component={MypageTopTapNavigator}
+                options={{
+                    headerShown: true,
+                    header: (props) => <Mypage {...props}/>
+                }}
+            />
             <Tab.Screen name='MypageNavigator' component={MypageNavigator} />
+
         </Tab.Navigator>
     )
 }

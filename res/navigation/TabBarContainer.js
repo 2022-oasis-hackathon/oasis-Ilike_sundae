@@ -28,6 +28,7 @@ function TabBarContainer({ state, descriptors, navigation }) {
     <View 
     style={{ flexDirection: 'row',backgroundColor:"transparent",height:90,justifyContent:"center",alignItems:"center" }}>
       {state.routes.map((route, index) => {
+            if (index > 4) return
           const { options } = descriptors[route.key];
           const label =
           options.tabBarLabel !== undefined
@@ -52,6 +53,7 @@ function TabBarContainer({ state, descriptors, navigation }) {
 
                     } else {
                         setPrevPage(route.name)
+                        console.log(route.name)
                         navigation.navigate(route.name);
                     }
                 }
