@@ -7,6 +7,8 @@ import {firebase_db} from "../../../firebaseConfig"
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 
+// favorite Page 
+
 export default function Favorites({navigation,route}){
     
     const [seed, setSeed] = useState([])

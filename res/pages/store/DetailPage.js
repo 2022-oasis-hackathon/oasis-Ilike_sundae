@@ -15,34 +15,29 @@ import ReviewCard from '../../components/ReviewCard';
 export default function DetailPage({navigation,route}) {
 
 
-    // const like = async () => {
-    //     // like 방 안에
-    //     // 특정 사용자 방안에
-    //     // 특정 좋아요 데이터 아이디 방안에
-    //     // 특정 좋아요 데이터 몽땅 저장!
-    //     // 좋아요 데이터 방 > 사용자 방 > 어떤 찜인지 아이디
-    //     let userUniqueId;
-    //     if(isIOS){
-    //     let iosId = await Application.getIosIdForVendorAsync(); // 분기처리
-    //         userUniqueId = iosId
-    //     }else{
-    //         userUniqueId = await Application.androidId
-    //     }
-	//        firebase_db.ref('/like/'+userUniqueId+'/'+ seed.idx).set(seed,function(error){
-    //          console.log(error)
-    //          Alert.alert("좋아요!")
-    //      });
-    // }
+    const like = async () => {
+        let userUniqueId;
+        if(isIOS){
+        let iosId = await Application.getIosIdForVendorAsync(); // 분기처리
+            userUniqueId = iosId
+        }else{
+            userUniqueId = await Application.androidId
+        }// 나중에 스토어랑 게시물 좋아요 데이터를 like / [article | seed] 형식으로 변경 
+	       firebase_db.ref('/like/'+userUniqueId+'/'+ route.params.idx).set(route.params,function(error){
+             console.log(error)
+             Alert.alert("좋아요!")
+         });
+    }
 
-    // const share = () => {
-    //     Share.share({
-    //         message:`${seed.title} \n\n ${seed.body} `,
-    //     });
-    // }
+    const share = () => {
+        Share.share({
+            message:`${seed.title} \n\n ${seed.body} `,
+        });
+    }
 
-    // const link = (address) => {   //  TODO : 게시물 페이지로 들가는 경로로 추가하기. 
-    //     Linking.openURL({address})
-    // }
+    const link = (address) => {   //  TODO : 게시물 페이지로 들가는 경로로 추가하기. 
+        Linking.openURL({address})
+    }
 
     return ( 
         <View style={{ backgroundColor: 'white', paddingBottom: 80, minHeight: '100%' }} >
@@ -52,7 +47,7 @@ export default function DetailPage({navigation,route}) {
             <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', height: 60, padding: 12, marginBottom: 4 }} >
                 <View style={{ flex: 1, justifyContent: 'center' }} >
                     <View style={{ display: 'flex', alignItems: 'center', flexDirection: 'row' }} >
-                        <Image source={{uri: route.params.imgPath}} style={{ width: 42, height: 42, borderRadius: "50%", marginRight: 4 }} />
+                        <Image source={{uri: route.params.imgPath}} style={{ width: 42, height: 42, borderRadius: '50%', marginRight: 4 }} />
                     
                         <View style={{ display: 'flex', justifyContent: 'center' }} >
                             <Text style={{ fontSize: 14, fontWeight: '500' }} >
@@ -110,7 +105,7 @@ export default function DetailPage({navigation,route}) {
         </ScrollView>
 
         <View style={{ position: 'absolute', bottom: -20,height: 80, display: 'flex', flexDirection: 'row', alignItems: 'center',justifyContent: 'space-between', padding: 12,  paddingTop: 0, backgroundColor: 'white', borderTopWidth: 1, borderColor: '#d4d4d4', marginBottom: 10 }} >
-            <TouchableOpacity style={{ display: 'flex', alignItems: 'center',justifyContent: 'center', width: '12.5%' }} >
+            <TouchableOpacity style={{ display: 'flex', alignItems: 'center',justifyContent: 'center', width: '12.5%' }} onPress={()=>like()}>
                 <Ionicons name='star-outline' size={24} />
             </TouchableOpacity>
 
