@@ -1,5 +1,5 @@
 
-import {Pressable,Text,StyleSheet, Image,SafeAreaView,TextInput, TouchableOpacity,View, TouchableWithoutFeedback, Keyboard, Button} from "react-native";
+import {Pressable,Text,StyleSheet, Image,SafeAreaView,TextInput, TouchableOpacity,View, TouchableWithoutFeedback, Keyboard, Button, Alert} from "react-native";
 import React,{useState,useEffect} from 'react'
 import Layout from '../../components/Layout'
 import data from '../../../data.json';
@@ -93,6 +93,12 @@ export default function CommunityWrite({ navigation, route }) {
 
   }, []);
 
+  function onPress() {
+    Alert.alert('', '글 작성이 완료되었습니다.'), 
+      navigation.navigate('CommunityHome'
+      )
+  }
+
     return(
       <>    
     <Layout>
@@ -116,7 +122,7 @@ export default function CommunityWrite({ navigation, route }) {
       </View>
     
   </Layout>
-     <TouchableOpacity style={{ height: 40, width: 100 ,position: 'absolute', bottom: 0,right: 40, backgroundColor: '#FF7B00', display: 'flex', alignItems:"center", justifyContent: 'center', borderRadius: 8 }} onPress={()=>addData()}>
+     <TouchableOpacity style={{ height: 40, width: 100 ,position: 'absolute', bottom: 0,right: 40, backgroundColor: '#FF7B00', display: 'flex', alignItems:"center", justifyContent: 'center', borderRadius: 8 }} onPress={() => onPress() }>
       <Text style={{ color: 'white', fontWeight: '600' }} >추가하기</Text>
       </TouchableOpacity>
   </>

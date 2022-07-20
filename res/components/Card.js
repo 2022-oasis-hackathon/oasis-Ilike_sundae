@@ -9,7 +9,8 @@ const WIDTH = Dimensions.get('window').width
 export default function Card({content,navigation}){
     
   
-
+  const a = Math.random().toFixed(1)*10;
+  
   const onPress = () => {
     navigation.navigate('DetailPage',content)
   }
@@ -27,8 +28,8 @@ export default function Card({content,navigation}){
                         <Text style={{ fontSize: 10, fontWeight: '500', marginRight: 4, color: '#6f6f6f' }}>{content.local}</Text>
                     </View>
 
-                    <View style={{ display: 'flex', flexDirection: 'row', backgroundColor: 'orange', borderRadius: 2, alignItems: 'center',justifyContent:'center', minWidth: 40 }} >
-                        <Text style={{ fontSize: 10, fontWeight: '500', color: 'white' }}>직거래</Text>
+                    <View style={{ display: 'flex', flexDirection: 'row', backgroundColor: a > 5 ? 'orange' : 'yellowgreen', borderRadius: 2, alignItems: 'center',justifyContent:'center', minWidth: 40 }} >
+                        <Text style={{ fontSize: 10, fontWeight: '500', color: 'white' }}>{ a > 5 ? '직거래' : '택배'}</Text>
                     </View>
                 </View>
                 <Text style={{ fontSize: 10, fontWeight: '400', color: 'black' }} numberOfLines={2}>{content.body}</Text>

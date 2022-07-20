@@ -2,6 +2,7 @@ import { View, Text, TouchableOpacity, Dimensions, Image } from 'react-native'
 import React, { useState } from 'react'
 import Svg, { Path, WithLocalSvg } from 'react-native-svg'
 import Ionicons from '@expo/vector-icons/Ionicons'
+import Bar from './Bar'
 
 
 
@@ -81,7 +82,8 @@ function TabBarContainer({ state, descriptors, navigation }) {
                 }}
                 key={index}
                 >
-                <Ionicons name={ICON_NAME[index]} size={index === 2 ? 72 : 32} color={isFocused ? '#FF7B00' : '#222'} />
+                    <Bar icon={index} color={isFocused} />
+                {/* <Ionicons name={ICON_NAME[index]} size={index === 2 ? 72 : 32} color={isFocused ? '#FF7B00' : '#222'} /> */}
                 <Text style={{ color: isFocused ? '#FF7B00' : '#222', fontSize: 12, fontFamily: '돋움' }}>
                     {index === 2 ? null : label}
                 </Text>

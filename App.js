@@ -23,9 +23,10 @@ export default function App() {
   });
   // 이미지 로딩
 
+  
  if (!fontsLoaded) return <SplashScreen />
 
-  return ( 
+  return (  
 
       <NavigationContainer>
         <StatusBar style="gray" />
