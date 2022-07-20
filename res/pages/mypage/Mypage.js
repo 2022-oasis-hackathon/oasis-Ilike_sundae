@@ -3,10 +3,9 @@ import React, { useEffect } from 'react'
 import Layout from '../../components/Layout'
 import Ionicons from '@expo/vector-icons/Ionicons'
 
-const Mypage = () => {
+const Mypage = ({ navigation, route }) => {
 
   useEffect(() => {
-    console.log("Q")
   }, [])
   
   return (
@@ -20,21 +19,16 @@ const Mypage = () => {
         </View>
       </View>
 
-      <TouchableOpacity style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', borderWidth: 1, borderColor: '#8f8f8f', height: 44, borderRadius: 4, marginBottom: 16 }} >
+      <TouchableOpacity onPress={() => navigation.navigate('MypageNavigator', { screen: 'Modify' })} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', borderWidth: 1, borderColor: '#8f8f8f', height: 44, borderRadius: 4, marginBottom: 16 }} >
         <Text style={{ color: '#8f8f8f', fontWeight: '500' }} >프로필 수정</Text>
       </TouchableOpacity>
 
       <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', marginBottom: 12 }} >
-        <TouchableOpacity style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 80 }} ><Ionicons name="chatbox-outline" size={48} /><Text style={{ fontSize: 12, fontWeight: '500' }} >구매 내용</Text></TouchableOpacity>
-        <TouchableOpacity style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 80 }} ><Ionicons name="chatbox-outline" size={48} /><Text style={{ fontSize: 12, fontWeight: '500' }} >리뷰 작성</Text></TouchableOpacity>
-        <TouchableOpacity style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 80 }} ><Ionicons name="chatbox-outline" size={48} /><Text style={{ fontSize: 12, fontWeight: '500' }} >찜 목록</Text></TouchableOpacity>
-        <TouchableOpacity style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 80 }} ><Ionicons name="chatbox-outline" size={48} /><Text style={{ fontSize: 12, fontWeight: '500' }} >배송지 정보</Text></TouchableOpacity>
+        <TouchableOpacity style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 80 }} ><Ionicons name="cart-outline" size={48} /><Text style={{ fontSize: 12, fontWeight: '500' }} >구매 내용</Text></TouchableOpacity>
+        <TouchableOpacity style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 80 }} ><Ionicons name="basket-outline" size={48} /><Text style={{ fontSize: 12, fontWeight: '500' }} >리뷰 작성</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Favorite')} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 80 }} ><Ionicons name="star-outline" size={48} /><Text style={{ fontSize: 12, fontWeight: '500' }} >찜 목록</Text></TouchableOpacity>
+        <TouchableOpacity style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 80 }} ><Ionicons name="bus-outline" size={48} /><Text style={{ fontSize: 12, fontWeight: '500' }} >배송지 정보</Text></TouchableOpacity>
       </View>
-
-      <View>
-        <Text>내 게시물 관리, 네비게이션 하나 더 삽입...</Text>
-      </View>
-
     </Layout>
   )
 }

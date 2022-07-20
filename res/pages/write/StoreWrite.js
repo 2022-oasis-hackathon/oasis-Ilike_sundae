@@ -1,15 +1,17 @@
 
-import {Pressable,Text,StyleSheet, Image,SafeAreaView,TextInput, TouchableOpacity,View, TouchableWithoutFeedback, Keyboard} from "react-native";
+import {Pressable,Text,StyleSheet, Image,SafeAreaView,TextInput, TouchableOpacity,View, TouchableWithoutFeedback, Keyboard, Button} from "react-native";
 import React,{useState,useEffect} from 'react'
 import Layout from '../../components/Layout'
 import data from '../../../data.json';
+import Ionicons from '@expo/vector-icons/Ionicons'
+
 
 import {firebase_db} from "../../../firebaseConfig"
 
 import * as ImagePicker from 'expo-image-picker';
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
 
-export default function CommunityWrite() {
+export default function CommunityWrite({ navigation, route }) {
   // 이미지 
   const [img,setImgUrl] = useState("");
   const [status, requestPermission] = ImagePicker.useMediaLibraryPermissions();
@@ -24,6 +26,7 @@ export default function CommunityWrite() {
   //
   const [seed,setSeed] = useState([]);
 
+  const [image, setImage] = useState(null);
 
 
   const UploadImg = () => {
@@ -87,15 +90,42 @@ export default function CommunityWrite() {
   });
 
   }
+  const pickImage = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    if (!result.cancelled) {
+      setImage(result.uri);
+    }
+  };
+
+  useEffect(() => {
+    navigation.setOptions({
+      title: '판매 글쓰기'
+    })
+  }, [])
+
     return(
-      <Layout>
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-    <SafeAreaView style={styles.container}>
-  {UploadImg()}
-    <View style={styles.row}>
-      <Text style={styles.text}>제목 :</Text>
-      <TextInput style={styles.input} onChangeText={setTitle} value={title} />
-    </View>
+      <>
+    <Layout>
+        <View style={{ display: 'flex', flexDirection: 'row' }} >
+          <TouchableOpacity  onPress={pickImage} style={{ display: 'flex', alignItems: "center", justifyContent: 'center', width: 120, height: 120, borderWidth: 1, borderRadius: 4, marginRight: 8 }} >
+            <Ionicons name="camera-outline" size={48} color="#4d4d4d" />
+            <Text style={{ fontSize:14, fontWeight: '500', color: '#4d4d4d' }} >사진업로드</Text>
+          </TouchableOpacity>
+          {image && <Image source={{ uri: image }} style={{ width: 120, height: 120, borderRadius: 4 }} />}
+        </View>
+
+
+      <View style={styles.row}>
+        <Text style={styles.text}>제목 :</Text>
+        <TextInput style={styles.input} onChangeText={setTitle} value={title} />
+      </View>
     
      <View style={styles.row}>
       <Text style={styles.text}>가격 :</Text>
@@ -128,16 +158,38 @@ export default function CommunityWrite() {
     <TextInput style={styles.input2} onChangeText={setBody} value={body} 
         placeholder="내용을 입력해주세요"/> 
     </View>
+
+      <View style={styles.row}>
+        <Text style={styles.text}>거래방법 :</Text>
+          <RadioButtonGroup 
+            containerStyle={styles.radioGroup}
+            selected={type}
+            onSelected={(value) => setType(value)}
+            radioBackground="green"
+            > 
+            <RadioButtonItem value="직거래" label="직거래" />
+            <RadioButtonItem value="택배" label="택배" />
+
+          </RadioButtonGroup>
+      </View>
+
+      <View style={styles.row}>
+        <Text style={styles.text}>위치 :</Text>
+        <TextInput style={styles.input} onChangeText={setLocal} value={local} />
+      </View>
+
+
+      <View style={{ height: '100%' }} >
+        <TextInput style={styles.input2} onChangeText={setBody} value={body} 
+            placeholder="내용을 입력해주세요"/>
+      </View>
     
-     <TouchableOpacity style={styles.submit} onPress={()=>addData()}><Text style={styles.buttonText}>추가하기</Text></TouchableOpacity>
-     </SafeAreaView>
-          
-                    
-    </TouchableWithoutFeedback>
-    </Layout>
-    )
-    
-}
+  </Layout>
+     <TouchableOpacity style={{ height: 40, width: 100 ,position: 'absolute', bottom: 0,right: 40, backgroundColor: '#FF7B00', display: 'flex', alignItems:"center", justifyContent: 'center', borderRadius: 8 }} onPress={()=>addData()}>
+      <Text style={{ color: 'white', fontWeight: '600' }} >추가하기</Text>
+      </TouchableOpacity>
+  </>
+)}
 
 
 const styles = StyleSheet.create({
@@ -148,12 +200,12 @@ const styles = StyleSheet.create({
   },
   row:{
     flexDirection:'row',
-   paddingTop:10,
-   paddingBottom:5,
+    paddingTop:10,
+  paddingBottom:5,
     alignItems:'center',
-    borderBottomWidth: 2,
-    borderColor:'#ccc',
-    
+    borderBottomWidth: 1,
+    borderColor:'#d4d4d4',
+    marginTop: 4
   },
   imgBox:{
     width: 110,
@@ -182,10 +234,8 @@ const styles = StyleSheet.create({
   purchase:{
     width:100,
     padding:3,
-    borderWidth:1,
-    borderColor:'#aaa',
     borderRadius:10,
-    backgroundColor:'#aaa'
+    backgroundColor:'#d2d2d2'
   },
 
   input2: {
@@ -207,8 +257,9 @@ const styles = StyleSheet.create({
   },
  
 text:{
-  fontSize:18,
-  padding:5
+  fontSize:14,
+  fontWeight: '500',
+  marginBottom: 4
 },
 contentBox:{
   width:340,

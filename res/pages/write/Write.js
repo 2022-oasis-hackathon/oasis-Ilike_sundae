@@ -16,19 +16,19 @@ const Write = ({ navigation, route }) => {
   switch (route.params.prevPage) {
     case PREV_PAGE[0]:
       return (
-        <StoreWrite />
+        <StoreWrite navigation={navigation} />
       )
     case PREV_PAGE[1]:
       return (
-        <ChatWrite />
+        <ChatWrite navigation={navigation} />
       )
     case PREV_PAGE[2]:
       return (
-        <CommunityWrite />
+        <CommunityWrite navigation={navigation} />
       )
     default:
       return (
-        <CommunityWrite />
+        <CommunityWrite navigation={navigation} />
       )
   }
 }
