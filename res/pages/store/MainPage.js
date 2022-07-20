@@ -85,7 +85,7 @@ export default function MainPage({navigation,route}) {
     <ScrollView style={styles.container}>
       <StatusBar style="light" />
       {/* <Text style={styles.weather}>오늘의 날씨: {Math.floor(weather.temp) + '°C   ' + weather.condition} </Text> */}
-       
+       <Text style={{ fontSize: 10, fontWeight: '500', color: '#4d4d4d', lineHeight: 10, marginBottom: -8 }} >[ad] 광고</Text>
       <View style={styles.banner}><Banner/></View>
 
       {/* <ScrollView style={styles.middleContainer} horizontal indicatorStyle={"white"}>

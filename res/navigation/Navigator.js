@@ -52,6 +52,7 @@ import Ing from '../pages/mypage/Ing';
 import Ed from '../pages/mypage/Ed'
 import Commu from '../pages/mypage/Commu'
 import ChatDetail from '../pages/chat/ChatDetail';
+import BuyList from '../pages/mypage/BuyList';
 
 const Top = createMaterialTopTabNavigator();
 const Stack = createStackNavigator();
@@ -165,7 +166,7 @@ const MypageNavigator = () => {
             <Stack.Screen name='Favorite' component={Favorite}
                 options={{ 
                     title: '찜 목록',
-                    headerLeft: () => <TouchableOpacity onPress={() => navigation.navigate('Ing')} ><Ionicons name='chevron-back-outline' size={28} /></TouchableOpacity>
+                    headerLeft: () => <TouchableOpacity onPress={() => navigation.navigate('MypageTopTapNavigator', {screen: 'Ing'})} ><Ionicons name='chevron-back-outline' size={28} /></TouchableOpacity>
                 }}
             />
             <Stack.Screen  name='Modify' component={Modify} 
@@ -174,6 +175,7 @@ const MypageNavigator = () => {
                     headerLeft: () => <TouchableOpacity onPress={() => navigation.navigate('Ing')} ><Ionicons name='chevron-back-outline' size={28} /></TouchableOpacity>
                 }}
             />
+            <Stack.Screen name='BuyList'  component={BuyList} options={{ title: '구매 목록' }}  />
         </Stack.Navigator>
     )
 }

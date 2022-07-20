@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-import {ScrollView, Text, StyleSheet} from 'react-native';
+import {ScrollView, Text, StyleSheet, View} from 'react-native';
 import LikeCard from '../../components/LikeCard'
 import * as Application from 'expo-application';
 const isIOS = Platform.OS === 'ios';
@@ -43,18 +43,18 @@ export default function Favorites({navigation,route}){
         })
     }
 
-
+    console.log(seed)
 
     return (
-     < SafeAreaView>
+    <View>
         <ScrollView style={styles.container}>
         {
             seed.map((content,i)=>{
                 return(<LikeCard key={i} content={content} navigation={navigation}/>)
             })
         }
-     </ScrollView>
-</SafeAreaView>
+        </ScrollView>
+    </View>
     )
 }
 

@@ -48,7 +48,8 @@ export default function MainPage({navigation,route}) {
 
     <ScrollView style={styles.container}>
       <StatusBar style="light" />
-      
+      <Text style={{ fontSize: 10, fontWeight: '500', color: '#4d4d4d', lineHeight: 10, marginBottom: -8, marginTop: 8, marginLeft: 12 }} >[ad] 광고</Text>
+
         <View style={styles.banner}><Banner/></View>
 
     <View style={styles.topPicContainer}>
