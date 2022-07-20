@@ -1,5 +1,6 @@
-import { View, Text } from 'react-native'
-import React, {useEffect} from 'react'
+import { View, Text, Image, TextInput } from 'react-native'
+import React, {useEffect, useState} from 'react'
+import Layout from '../../components/Layout';
 
 const Modify = ({navigation}) => {
 
@@ -30,12 +31,11 @@ const Modify = ({navigation}) => {
         <View style={{padding:20 }}>
           <Text style={{ fontSize: 20, fontWeight: '700', color: '#FF7B00', marginBottom: 4 }} >닉네임  : </Text>
           
-        <TextInput style={styles.input} onChangeText={name} value={name} />
+        <TextInput onChangeText={name} value={name} />
           <Text style={{ fontSize: 14, fontWeight: '500', color: '#4f4f4f',paddingTop:10 }} >{state.local}</Text>
-        <TextInput style={styles.input} onChangeText={local} value={local} />
+        <TextInput onChangeText={local} value={local} />
         </View>
 
-        
 
 
       </View>

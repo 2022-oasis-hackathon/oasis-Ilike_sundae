@@ -31,7 +31,6 @@ export default function Ask({navigation,route}) {
     <ScrollView style={styles.container}>
       <StatusBar style="light" />
       
-      <View style={styles.middleBar}><Text style={{textAlign:'center'}}>해시태그 보류</Text></View>
         <View style={styles.topPicItem}>
         
           <ScrollView indicatorStyle={"white"}>
