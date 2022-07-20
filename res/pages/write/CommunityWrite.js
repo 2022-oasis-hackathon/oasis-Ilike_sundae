@@ -84,16 +84,17 @@ export default function CommunityWrite({ navigation, route }) {
      });
      
   }
-  };
+  
 
   useEffect(() => {
     navigation.setOptions({
       title: '커뮤니티 글쓰기'
     })
-  }, [])
+
+  }, []);
 
     return(
-      <>
+      <>    
     <Layout>
         <View style={{ display: 'flex', flexDirection: 'row' }} >
           <TouchableOpacity  onPress={pickImage} style={{ display: 'flex', alignItems: "center", justifyContent: 'center', width: 120, height: 120, borderWidth: 1, borderRadius: 4, marginRight: 8 }} >
@@ -119,7 +120,7 @@ export default function CommunityWrite({ navigation, route }) {
       <Text style={{ color: 'white', fontWeight: '600' }} >추가하기</Text>
       </TouchableOpacity>
   </>
-)}
+)};
 
 
 const styles = StyleSheet.create({

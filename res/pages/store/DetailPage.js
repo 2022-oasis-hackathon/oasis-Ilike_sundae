@@ -66,8 +66,14 @@ let sales = {
 
 
 
-    const like = () => {
-        const userUniqueId = userId();
+    const like = async () => {     
+        let userUniqueId;
+        if(isIOS){
+        let iosId = await Application.getIosIdForVendorAsync(); // 분기처리
+            userUniqueId = iosId
+        }else{
+            userUniqueId = await Application.androidId
+        }
        // 나중에 스토어랑 게시물 좋아요 데이터를 like / [article | seed] 형식으로 변경 
 	       firebase_db.ref('/like/'+userUniqueId+'/'+ route.params.idx).set(route.params,function(error){
              console.log(error)
