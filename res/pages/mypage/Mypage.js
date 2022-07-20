@@ -24,10 +24,10 @@ const Mypage = ({ navigation, route }) => {
       </TouchableOpacity>
 
       <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', marginBottom: 12 }} >
-        <TouchableOpacity style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 80 }} ><Ionicons name="chatbox-outline" size={48} /><Text style={{ fontSize: 12, fontWeight: '500' }} >구매 내용</Text></TouchableOpacity>
-        <TouchableOpacity style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 80 }} ><Ionicons name="chatbox-outline" size={48} /><Text style={{ fontSize: 12, fontWeight: '500' }} >리뷰 작성</Text></TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Favorite')} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 80 }} ><Ionicons name="chatbox-outline" size={48} /><Text style={{ fontSize: 12, fontWeight: '500' }} >찜 목록</Text></TouchableOpacity>
-        <TouchableOpacity style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 80 }} ><Ionicons name="chatbox-outline" size={48} /><Text style={{ fontSize: 12, fontWeight: '500' }} >배송지 정보</Text></TouchableOpacity>
+        <TouchableOpacity style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 80 }} ><Ionicons name="cart-outline" size={48} /><Text style={{ fontSize: 12, fontWeight: '500' }} >구매 내용</Text></TouchableOpacity>
+        <TouchableOpacity style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 80 }} ><Ionicons name="basket-outline" size={48} /><Text style={{ fontSize: 12, fontWeight: '500' }} >리뷰 작성</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Favorite')} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 80 }} ><Ionicons name="star-outline" size={48} /><Text style={{ fontSize: 12, fontWeight: '500' }} >찜 목록</Text></TouchableOpacity>
+        <TouchableOpacity style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 80 }} ><Ionicons name="bus-outline" size={48} /><Text style={{ fontSize: 12, fontWeight: '500' }} >배송지 정보</Text></TouchableOpacity>
       </View>
     </Layout>
   )

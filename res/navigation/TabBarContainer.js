@@ -14,10 +14,10 @@ const ROUTE_NAME = [
 ]
 const ICON_NAME = [
     'home-outline',
-    'add',
-    'add-circle-outline',
-    'add',
-    'add'
+    'people-outline',
+    'add-circle',
+    'chatbubbles-outline',
+    'person-outline'
 ]
 const WIDTH = Math.floor(Dimensions.get('window').width)
 const HEIGHT = Math.floor(Dimensions.get('window').height)
@@ -81,7 +81,7 @@ function TabBarContainer({ state, descriptors, navigation }) {
                 }}
                 key={index}
                 >
-                <Ionicons name={ICON_NAME[index]} size={index === 2 ? 66 : 32} color={isFocused ? '#FF7B00' : '#222'} />
+                <Ionicons name={ICON_NAME[index]} size={index === 2 ? 78 : 32} color={isFocused ? '#FF7B00' : '#222'} />
                 <Text style={{ color: isFocused ? '#FF7B00' : '#222', fontSize: 12, fontFamily: '돋움' }}>
                     {index === 2 ? null : label}
                 </Text>

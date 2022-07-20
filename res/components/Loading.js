@@ -1,8 +1,11 @@
 import React from 'react';
-import {View,Text,StyleSheet} from 'react-native';
+import {View,Text,StyleSheet, Image} from 'react-native';
 
 export default function Loading(){
-    return(<View style={styles.container}><Text style={styles.title}>준비중입니다...</Text></View>)
+    return(
+        <View style={styles.container}>
+            <Image source={{ uri: 'https://ifh.cc/g/pRQxxb.png', width: 100, height: 100}} />
+        </View>)
 }
 
 
@@ -11,7 +14,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent:'center',
         alignItems:'center',
-        backgroundColor: '#fdc453',
+        backgroundColor: 'white',
         height: '100%',
         width: '100%',
         position: 'absolute',

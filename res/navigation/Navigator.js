@@ -182,8 +182,8 @@ const MypageTopTapNavigator = () => {
             screenOptions={{
                 tabBarActiveTintColor: '#000',
                 tabBarInactiveTintColor:'#aaa',
-                tabBarIndicatorStyle: {borderColor: 'black', borderBottomWidth: 2, marginLeft: 10, width: 60},
-                tabBarItemStyle: {width: 80, height: 40},
+                tabBarIndicatorStyle: {borderColor: 'black', borderBottomWidth: 2, marginLeft: 10, width: 80},
+                tabBarItemStyle: {width: 100, height: 40},
                 tabBarLabelStyle: { fontWeight: '600', fontSize: 14 }
             }}
         >
@@ -212,6 +212,7 @@ const BottomTapNavigator = () => {
             <Tab.Screen name='ChatNavigation' component={ChatNavigation} />
             <Tab.Screen name='MypageTopTapNavigator' component={MypageTopTapNavigator}
                 options={{
+                    headerShown: true,
                     header: (props) => <Mypage {...props}/>,
                 }}
             />
