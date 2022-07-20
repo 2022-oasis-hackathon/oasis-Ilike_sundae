@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from '@expo/vector-icons/Ionicons'
 
-// icons
+// Sign
+import SignIn from '../pages/Sign/SignIn'
+import SignUp from '../pages/Sign/SignUp'
 
 // components
 import Header from '../components/Header';
@@ -214,28 +216,36 @@ const MypageTopTapNavigator = () => {
 
 
 const BottomTapNavigator = () => {
+    const [ isLoggedIn, setIsLoggedIn ] = useState(false)
     return (
-        <Tab.Navigator
-            screenOptions={{
-                headerShown: false,
-            }}
-            tabBar={props => <TabBarContainer {...props}/>}
-        >
-            <Tab.Screen name='StoreNavigator' component={StoreNavigator} 
-            />
-            <Tab.Screen name='CommunityNavigator' component={CommunityNavigator} />
-            <Tab.Screen name='Write' component={Write} 
-                options={{ headerShown: true }}
-            />
-            <Tab.Screen name='ChatNavigation' component={ChatNavigation} />
-            <Tab.Screen name='MypageTopTapNavigator' component={MypageTopTapNavigator}
-                options={{
-                    headerShown: true,
-                    header: (props) => <Mypage {...props}/>,
-                }}
-            />
-            <Tab.Screen name='MypageNavigator' component={MypageNavigator} />
-        </Tab.Navigator>
+            isLoggedIn
+             ?
+             <Tab.Navigator
+             screenOptions={{
+                 headerShown: false,
+             }}
+             tabBar={props => <TabBarContainer {...props}/>}
+         >
+             <Tab.Screen name='StoreNavigator' component={StoreNavigator} 
+             />
+             <Tab.Screen name='CommunityNavigator' component={CommunityNavigator} />
+             <Tab.Screen name='Write' component={Write} 
+                 options={{ headerShown: true }}
+             />
+             <Tab.Screen name='ChatNavigation' component={ChatNavigation} />
+             <Tab.Screen name='MypageTopTapNavigator' component={MypageTopTapNavigator}
+                 options={{
+                     headerShown: true,
+                     header: (props) => <Mypage {...props}/>,
+                 }}
+             />
+             <Tab.Screen name='MypageNavigator' component={MypageNavigator} />
+         </Tab.Navigator>
+            :
+            <Stack.Navigator screenOptions={{ headerShown: false }} >
+                <Stack.Screen name="SignIn" component={SignIn} />
+                <Stack.Screen name="SignUp" component={SignUp} />
+            </Stack.Navigator>
     )
 }
 
