@@ -1,11 +1,11 @@
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
 import React from 'react'
 
 const Ing = () => {
   return (
-    <View>
+    <ScrollView style={{ padding: 12 }} >
       <Text>Ing</Text>
-    </View>
+    </ScrollView>
   )
 }
 
