@@ -42,7 +42,7 @@ export default function Card({content,navigation}){
 
                     <View  style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }} >
                       <Ionicons name='chatbubbles-outline' size={12} style={{ marginRight: 2 }} />
-                      <Text style={{ fontSize: 10, fontWeight: '400', color: 'black' }}>{content.review.length}</Text>
+                      <Text style={{ fontSize: 10, fontWeight: '400', color: 'black' }}>{content.review && content.review.length}</Text>
                     </View>                
                 </View>
             </View>

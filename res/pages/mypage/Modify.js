@@ -20,10 +20,7 @@ const [profile,setProfile] = useState(
   return (
     
     <Layout>
-<<<<<<< HEAD
-      <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: 12, marginBottom: 20 }} >
-        <View style={{ width: 72, height: 72, backgroundColor: 'gray', borderRadius: '50%', marginRight: 12 }} ></View>
-=======
+
       <View style={{ display: 'flex', flexDirection: 'rcolumn', alignItems: 'left', marginTop: 12, marginBottom: 20 }} >
         <View style={{ width: 72, height: 72, backgroundColor: 'gray', borderRadius: '50%', marginRight: 12 }} >
           <Image style={{ width: 72, height: 72, backgroundColor: 'gray', borderRadius: '50%', marginRight: 12 }} source={{uri:state.img}}/>
@@ -39,7 +36,6 @@ const [profile,setProfile] = useState(
 
 
 
->>>>>>> ee6c9a825a001cc2940f0180f5caad9af029d983
       </View>
 
      
