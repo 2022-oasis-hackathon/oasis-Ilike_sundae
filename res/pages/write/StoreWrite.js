@@ -156,36 +156,14 @@ export default function CommunityWrite({ navigation, route }) {
       <TextInput style={styles.input} onChangeText={setLocal} value={local} />
     </View>
 
-<Text style={styles.desc}> 내용 </Text>
+    <Text style={{ fontSize: 14, marginTop: 8 }}>내용</Text>
     <View style={styles.contentBox}>
     <TextInput style={styles.input2} onChangeText={setBody} value={body} 
         placeholder="내용을 입력해주세요"/> 
     </View>
 
-      <View style={styles.row}>
-        <Text style={styles.text}>거래방법 :</Text>
-          <RadioButtonGroup 
-            containerStyle={styles.radioGroup}
-            selected={type}
-            onSelected={(value) => setType(value)}
-            radioBackground="green"
-            > 
-            <RadioButtonItem value="직거래" label="직거래" />
-            <RadioButtonItem value="택배" label="택배" />
-
-          </RadioButtonGroup>
-      </View>
-
-      <View style={styles.row}>
-        <Text style={styles.text}>위치 :</Text>
-        <TextInput style={styles.input} onChangeText={setLocal} value={local} />
-      </View>
 
 
-      <View style={{ height: '100%' }} >
-        <TextInput style={styles.input2} onChangeText={setBody} value={body} 
-            placeholder="내용을 입력해주세요"/>
-      </View>
     
   </Layout>
      <TouchableOpacity style={{ height: 40, width: 100 ,position: 'absolute', bottom: 0,right: 40, backgroundColor: '#FF7B00', display: 'flex', alignItems:"center", justifyContent: 'center', borderRadius: 8 }} onPress={()=>addData()}>
@@ -265,10 +243,8 @@ text:{
   marginBottom: 4
 },
 contentBox:{
-  width:340,
-  height: 260,
-  borderTopWidth:0.5,
-  borderColor:'#aaa'
+  width:'100%',
+  height: '100%',
 },
 radioGroup:{
   display:'flex',

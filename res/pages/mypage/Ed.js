@@ -4,7 +4,7 @@ import React from 'react'
 const Ed = () => {
   return (
     <ScrollView style={{ padding: 12 }} >
-      <Text>Ed</Text>
+      <Text></Text>
     </ScrollView>
   )
 }

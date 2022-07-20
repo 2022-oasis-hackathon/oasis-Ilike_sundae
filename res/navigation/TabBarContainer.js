@@ -81,7 +81,7 @@ function TabBarContainer({ state, descriptors, navigation }) {
                 }}
                 key={index}
                 >
-                <Ionicons name={ICON_NAME[index]} size={index === 2 ? 78 : 32} color={isFocused ? '#FF7B00' : '#222'} />
+                <Ionicons name={ICON_NAME[index]} size={index === 2 ? 72 : 32} color={isFocused ? '#FF7B00' : '#222'} />
                 <Text style={{ color: isFocused ? '#FF7B00' : '#222', fontSize: 12, fontFamily: '돋움' }}>
                     {index === 2 ? null : label}
                 </Text>

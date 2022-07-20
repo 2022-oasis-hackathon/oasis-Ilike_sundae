@@ -1,3 +1,4 @@
+
 import { View, Text, TouchableOpacity,TextInput } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import Layout from '../../components/Layout'
@@ -19,8 +20,26 @@ const [profile,setProfile] = useState(
   return (
     
     <Layout>
+<<<<<<< HEAD
       <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: 12, marginBottom: 20 }} >
         <View style={{ width: 72, height: 72, backgroundColor: 'gray', borderRadius: '50%', marginRight: 12 }} ></View>
+=======
+      <View style={{ display: 'flex', flexDirection: 'rcolumn', alignItems: 'left', marginTop: 12, marginBottom: 20 }} >
+        <View style={{ width: 72, height: 72, backgroundColor: 'gray', borderRadius: '50%', marginRight: 12 }} >
+          <Image style={{ width: 72, height: 72, backgroundColor: 'gray', borderRadius: '50%', marginRight: 12 }} source={{uri:state.img}}/>
+        </View>
+        
+        <View style={{padding:20 }}>
+          <Text style={{ fontSize: 20, fontWeight: '700', color: '#FF7B00', marginBottom: 4 }} >닉네임  : </Text>
+          
+        <TextInput onChangeText={name} value={name} />
+          <Text style={{ fontSize: 14, fontWeight: '500', color: '#4f4f4f',paddingTop:10 }} >{state.local}</Text>
+        <TextInput onChangeText={local} value={local} />
+        </View>
+
+
+
+>>>>>>> ee6c9a825a001cc2940f0180f5caad9af029d983
       </View>
 
      

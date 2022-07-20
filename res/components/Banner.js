@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import Swiper from "react-native-web-swiper";
 
 
@@ -29,16 +29,9 @@ export default class Banner extends React.Component {
                         </TouchableOpacity>
                       ),
                     }}
-                  >
-                      <View style={{flex:1,alignItems:"center",justifyContent:"center",backgroundColor:"rgba(20,20,200,0.3)", borderRadius: 4}}>
-                          <Text>Slide 1</Text>
-                      </View>
-                      <View style={{flex:1,alignItems:"center",justifyContent:"center",backgroundColor:"rgba(20,200,20,0.3)", borderRadius: 4}}>
-                          <Text>Slide 2</Text>
-                      </View>
-                      <View style={{flex:1,alignItems:"center",justifyContent:"center",backgroundColor:"rgba(200,20,20,0.3)", borderRadius: 4}}>
-                          <Text>Slide 3</Text>
-                      </View>
+                  > 
+                      <Image source={{ uri: 'https://ifh.cc/g/3N6MDM.png', width: '100%' }} style={{ flex: 1, alignItems: 'center', justifyContent: 'center', borderRadius: 4 }} /> 
+                      <Image source={{ uri: 'https://ifh.cc/g/w9fv1s.png', width: '100%' }} style={{ flex: 1, alignItems: 'center', justifyContent: 'center', borderRadius: 4 }} /> 
                   </Swiper>
               </View>
               
