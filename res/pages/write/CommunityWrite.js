@@ -24,6 +24,9 @@ export default function CommunityWrite() {
   //
   const [article,setArticle] = useState([]);
 
+  
+
+
   const UploadImg = () => {
    
   //권한 등록.
@@ -77,6 +80,7 @@ export default function CommunityWrite() {
          console.log(error)
          Alert.alert("추가되었습니다.!")
      });
+     
   }
     return(
       
@@ -216,3 +220,7 @@ buttonText:{
 });
 
 
+
+
+// like / article / id / 
+// like / seed 

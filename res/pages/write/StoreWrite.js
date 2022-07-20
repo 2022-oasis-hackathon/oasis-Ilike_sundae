@@ -25,6 +25,7 @@ export default function CommunityWrite() {
   const [seed,setSeed] = useState([]);
 
 
+
   const UploadImg = () => {
   //권한 등록.
       const uploadImage = async () => {
@@ -59,10 +60,13 @@ export default function CommunityWrite() {
       );
   } 
 
-  const addData = async () => {
-const idx = 1; // autoincrement기능 필요
-    let post = {
-      "idx":idx,
+    
+
+    const addData = async () => {
+      
+
+      let post = {
+      "idx":1,
       title,
       body,
       "writter":"user1",
@@ -77,10 +81,11 @@ const idx = 1; // autoincrement기능 필요
     // 날짜 / autoincrement / 로그인 > 회원정보
     setSeed(post)
   
-     firebase_db.ref('/seed1/'+idx).set(seed,function(error){ // test하기위해 다른 경로로 생성.
-         console.log(error)
-         Alert.alert("추가되었습니다.!")
-     });
+    firebase_db.ref('/seed1/'+post.idx).set(seed,function(error){
+      console.log(error)
+      Alert.alert("좋아요!")
+  });
+
   }
     return(
       <Layout>
@@ -121,8 +126,7 @@ const idx = 1; // autoincrement기능 필요
 <Text style={styles.desc}> 내용 </Text>
     <View style={styles.contentBox}>
     <TextInput style={styles.input2} onChangeText={setBody} value={body} 
-        placeholder="내용을 입력해주세요"/>
-        
+        placeholder="내용을 입력해주세요"/> 
     </View>
     
      <TouchableOpacity style={styles.submit} onPress={()=>addData()}><Text style={styles.buttonText}>추가하기</Text></TouchableOpacity>

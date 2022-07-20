@@ -24,6 +24,7 @@ import TabBarContainer from './TabBarContainer';
 // MyPage
 import ShopCart from '../pages/mypage/ShopCart';
 import Favorite from '../pages/mypage/Favorites'
+import MyInfo from '../pages/mypage/Myinfo';
 
 // Community TopTap Page
 import Community from '../pages/community/Community'

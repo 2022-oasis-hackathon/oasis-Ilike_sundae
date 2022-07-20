@@ -7,22 +7,68 @@ import Ionicons from '@expo/vector-icons/Ionicons'
 import * as Application from 'expo-application';
 const isIOS = Platform.OS === 'ios';
 
-
-
-import seedData from '../../../data.json'
 import ReviewCard from '../../components/ReviewCard';
 
 export default function DetailPage({navigation,route}) {
 
+    const [member,setMember] = useState(
+        {
+            "id":"04327548-9423-4B35-926D-0D2C1B82B6B2",
+            "local":"전주시",
+            "name":"정민수"
+        });
 
-    const like = async () => {
+    const [sale,setSale] = useState([]);
+
+    const userinfo = ({userId})=>{
+            
+
+     }
+
+    const userId = async () =>{
         let userUniqueId;
         if(isIOS){
         let iosId = await Application.getIosIdForVendorAsync(); // 분기처리
             userUniqueId = iosId
         }else{
             userUniqueId = await Application.androidId
-        }// 나중에 스토어랑 게시물 좋아요 데이터를 like / [article | seed] 형식으로 변경 
+        }
+
+    }
+
+
+    const purchase = () =>{
+// pId구매자 아이디 , cId 판매자 아이디 
+
+
+let sales = {
+    "pId": route.params.idx,
+    "cId": member.id,
+    "order": route.params.title,
+    "amount": route.params.amount,
+    "cate":"사과",
+    "price":route.params.price,
+    "address":member.local
+}
+        setSale(sales); 
+
+        firebase_db.ref('/sales/'+sales.pId+'/'+ route.params.idx).set(sale,function(error){
+            console.log(error)
+    
+        });
+
+        firebase_db.ref('/purchase/'+sales.cId+'/'+ route.params.idx).set(sale,function(error){
+            console.log(error)
+            Alert.alert("구매완료 !!")
+        });
+
+    }
+
+
+
+    const like = () => {
+        const userUniqueId = userId();
+       // 나중에 스토어랑 게시물 좋아요 데이터를 like / [article | seed] 형식으로 변경 
 	       firebase_db.ref('/like/'+userUniqueId+'/'+ route.params.idx).set(route.params,function(error){
              console.log(error)
              Alert.alert("좋아요!")
@@ -109,7 +155,7 @@ export default function DetailPage({navigation,route}) {
                 <Ionicons name='star-outline' size={24} />
             </TouchableOpacity>
 
-            <TouchableOpacity style={{ display: 'flex', alignItems: 'center',justifyContent: 'center', width: '87.5%', backgroundColor: 'orange', height: 42, borderRadius: 4 }} >
+            <TouchableOpacity style={{ display: 'flex', alignItems: 'center',justifyContent: 'center', width: '87.5%', backgroundColor: 'orange', height: 42, borderRadius: 4 }}  onPress={()=>purchase()}>
                 <Text style={{ color: "white", fontSize: 16, fontWeight: '600' }} >구매하기</Text>
             </TouchableOpacity>
         </View>
